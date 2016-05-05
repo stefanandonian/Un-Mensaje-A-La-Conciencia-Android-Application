@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MensajeAndroid</string>
+    <string name="action_settings">Settings</string>
+    <string name="titleResource">Title: %1$d</string>
+    <string name="dateResource">Date</string>
+    <string name="contentResource">Lots of Content...</string>
+</resources>
