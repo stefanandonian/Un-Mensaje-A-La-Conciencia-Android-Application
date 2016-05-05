@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="32ab8bede8cd600f25a5bb3fe15068c81c8910dc">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0-alpha2_42d02125efeea65dabbfd4da16b25cfe3e4d36f3.jar" />
+    </item>
+    <item
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dc88341cbaaac9d67a982378e5df68d8c81289ed">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.0.0-alpha2_91a72d4e1d6ac1af955b7e2dc73f658da48215bd.jar" />
+    </item>
+    <item
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="661a632c3b434991d6364690cbe0f786371101cc">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.0.0-alpha2_c3db66fd2b9484b096ba72f9c9b22babe534b77d.jar" />
+    </item>
+    <item
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="df7f6513d6e2aaa302bbac654807c6129b517090">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.0.0-alpha2_28fe4e1a74488120756750b4e532ee74fdb57cce.jar" />
+    </item>
+    <item
+        jar="/Users/stefanandonian/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0-alpha2/support-annotations-24.0.0-alpha2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8071e1e6cd07e9253720313d6c14286a7ee424e0">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0-alpha2_ea190e6cfe964fe94cef25b08f3f9b405384ee00.jar" />
+    </item>
+    <item
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha2/jars/libs/internal_impl-24.0.0-alpha2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e460bc069dfd21d22770cf2a2370c9021b9c98a2">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0-alpha2_802acc91210e06952dffa479c03953dc22c2c8db.jar" />
+    </item>
+    <item
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2f417d93e1f62fd4fb4a2c0f3a4a882dd0ca7843">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.0.0-alpha2_8ca4fcf5bafb051127111d37451bde60fa42122d.jar" />
+    </item>
+    <item
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="bf5aa3b026d5b5fd9f4ab5e8cf13499b9e016dfb">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.0.0-alpha2_6b98de12b62b1c8cd81791220ae931e7716b7ac3.jar" />
+    </item>
+
+</items>

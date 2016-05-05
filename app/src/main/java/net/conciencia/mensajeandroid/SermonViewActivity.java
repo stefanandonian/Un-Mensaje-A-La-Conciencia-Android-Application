@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class SermonViewActivity extends AppCompatActivity {
+    RSSInterface rssInterface;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -47,6 +48,9 @@ public class SermonViewActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        Bundle args = getIntent().getExtras();
+        rssInterface = args.getParcelable(Constants.RSS_EXTRA);
     }
 
 

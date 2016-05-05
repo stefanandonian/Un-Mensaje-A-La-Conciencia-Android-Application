@@ -3,7 +3,6 @@ package net.conciencia.mensajeandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 public class SermonListActivity extends AppCompatActivity implements SermonFragment.SermonListInteraction {
 
@@ -14,9 +13,14 @@ public class SermonListActivity extends AppCompatActivity implements SermonFragm
     }
 
     @Override
-    public void onSermonSelected(RSSInterface rssInterface, Sermon sermon) {
+    public void onSermonSelected(RSSInterface rssInterface, int sermonIndex) {
         //todo
-        Toast.makeText(this, String.format("Sermon %s (%s) selected", sermon.getTitle(), sermon.getPubDate()), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent();
+        //Toast.makeText(this, String.format("Sermon %s (%s) selected", sermon.getTitle(), sermon.getPubDate()), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(SermonListActivity.this, SermonViewActivity.class);
+        Bundle extras = new Bundle();
+        extras.putParcelable(Constants.RSS_EXTRA, rssInterface);
+        extras.putInt(Constants.SERMON_INDEX, sermonIndex);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 }

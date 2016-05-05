@@ -13,6 +13,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -22,15 +23,17 @@ import javax.xml.parsers.ParserConfigurationException;
 /**
  * RSS interface for Un Mensaje A La Conciencia's website
  */
-public class RSSInterface implements Parcelable<RSSInterface> {
+public class RSSInterface implements Parcelable {
     private static final String UN_MENSAJE_RSS_FEED = "http://conciencia.net/rss.aspx";
 
     boolean dataLoaded = false;
     List<Sermon> sermons;
 
     public RSSInterface(Parcel source) {
-        this();
-        source.readParcelableArray(ClassLoader.getSystemClassLoader());
+        sermons = source.readArrayList(ClassLoader.getSystemClassLoader());
+    }
+    public RSSInterface(){
+        sermons = new ArrayList<Sermon>();
     }
 
     public static void main(String[] args) {
@@ -39,10 +42,6 @@ public class RSSInterface implements Parcelable<RSSInterface> {
         System.out.println("Printing Items...");
         System.out.println(umr.getSermons());
         System.out.println("Finished Printing Items...");
-    }
-
-    public RSSInterface(){
-        sermons = new ArrayList<Sermon>();
     }
 
     /**
@@ -58,6 +57,10 @@ public class RSSInterface implements Parcelable<RSSInterface> {
         sermons = parseDocument(feed);
         dataLoaded = true;
         return true;
+    }
+
+    public Sermon getSermon(int sermonIndex){
+        return sermons.get(sermonIndex);
     }
 
     public Document getXML() {
@@ -154,9 +157,7 @@ public class RSSInterface implements Parcelable<RSSInterface> {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        for(Sermon sermon : sermons) {
-            dest.writeParcelable(sermon, flags);
-        }
+        dest.writeList(getSermons());
     }
 
     public static final Parcelable.Creator<RSSInterface> CREATOR = new Parcelable.Creator<RSSInterface>(){

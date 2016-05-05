@@ -75,7 +75,7 @@ public class SermonFragment extends Fragment implements SwipeRefreshLayout.OnRef
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Sermon chosenSermon = (Sermon)parent.getAdapter().getItem(position);
-        mListener.onSermonSelected(rssInterface, chosenSermon);
+        mListener.onSermonSelected(rssInterface, /*chosenSermon*/ position);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class SermonFragment extends Fragment implements SwipeRefreshLayout.OnRef
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface SermonListInteraction {
-        void onSermonSelected(RSSInterface rssInterface, Sermon sermon);
+        void onSermonSelected(RSSInterface rssInterface, int sermonIndex);
     }
 
     public class UpdateSermonsTask extends AsyncTask<Void, Void, Boolean>{
