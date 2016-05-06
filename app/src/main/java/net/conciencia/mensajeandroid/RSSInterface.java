@@ -13,8 +13,6 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -27,10 +25,10 @@ public class RSSInterface implements Parcelable {
     private static final String UN_MENSAJE_RSS_FEED = "http://conciencia.net/rss.aspx";
 
     boolean dataLoaded = false;
-    List<Sermon> sermons;
+    ArrayList<Sermon> sermons;
 
     public RSSInterface(Parcel source) {
-        sermons = source.readArrayList(ClassLoader.getSystemClassLoader());
+        sermons = source.readArrayList(Sermon.class.getClassLoader());
     }
     public RSSInterface(){
         sermons = new ArrayList<Sermon>();
@@ -60,7 +58,7 @@ public class RSSInterface implements Parcelable {
     }
 
     public Sermon getSermon(int sermonIndex){
-        return sermons.get(sermonIndex);
+        return sermons.get(sermonIndex-1);
     }
 
     public Document getXML() {
@@ -143,10 +141,10 @@ public class RSSInterface implements Parcelable {
         }
     }//*/
 
-    public List<Sermon> getSermons() {
+    public ArrayList<Sermon> getSermons() {
         return sermons;
     }
-    public void setSermons(List<Sermon> sermons){
+    public void setSermons(ArrayList<Sermon> sermons){
         this.sermons = sermons;
     }
 
