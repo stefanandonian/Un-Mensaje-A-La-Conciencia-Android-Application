@@ -129,8 +129,10 @@ public class RSSInterface implements Parcelable {
     private String[] getEnclosureValues(Element itemElement, String tagName) {
         String[] attributeValues = new String[2];
         NodeList audioVideo = itemElement.getElementsByTagName("enclosure");
-        attributeValues[0]  = audioVideo.item(0).getAttributes().item(2).toString();
-        attributeValues[1]  = audioVideo.item(1).getAttributes().item(2).toString();
+        //attributeValues[0]  = audioVideo.item(0).getAttributes().item(2).toString();
+        attributeValues[0]  = audioVideo.item(0).getAttributes().item(0).getNodeValue();
+        //attributeValues[1]  = audioVideo.item(1).getAttributes().item(2).toString();
+        attributeValues[1]  = audioVideo.item(1).getAttributes().item(0).getNodeValue();
         return attributeValues;
     }
 

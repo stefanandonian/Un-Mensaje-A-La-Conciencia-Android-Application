@@ -21,9 +21,11 @@ public class Sermon implements Parcelable {
         this.pubDate     = pubDate;
         this.author      = author;
         this.text        = text;
+        //System.out.printf("Audio URL: %s\nVideo URL: %s\n", audioURL, videoURL);
         this.audioURL    = audioURL;
         this.videoURL    = videoURL;
         this.duration    = duration;
+        System.out.println(this);
     }
 
     public Sermon(Parcel source) {

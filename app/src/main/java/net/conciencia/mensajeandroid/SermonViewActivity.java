@@ -1,18 +1,23 @@
 package net.conciencia.mensajeandroid;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SermonViewActivity extends AppCompatActivity implements RSSClient {
@@ -42,8 +47,10 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sermon_view);
 
-        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle args = getIntent().getExtras();
         rssInterface = args.getParcelable(Constants.RSS_EXTRA);
@@ -90,6 +97,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         int sermonIndex;
         TextView titleTextView;
         TextView dateTextView;
+        Button videoButton, audioButton;
         TextView message_contentsTextView;
 
         /**
@@ -149,6 +157,23 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
             dateTextView = (TextView) rootView.findViewById(R.id.date);
             message_contentsTextView = (TextView) rootView.findViewById(R.id.message_content);
 
+            audioButton = (Button) rootView.findViewById(R.id.button_audio);
+            audioButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    playAudio();
+                }
+            });
+            audioButton.setEnabled(true);
+            videoButton = (Button) rootView.findViewById(R.id.button_video);
+            videoButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    playVideo();
+                }
+            });
+            videoButton.setEnabled(true);
+
             sermonIndex = getArguments().getInt(ARG_SERMON_INDEX);
             displaySermon();
 
@@ -156,6 +181,22 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
             //dateTextView.setText(getString(R.string.dateResource, getArguments().getInt(ARG_SERMON_INDEX)));
             //message_contentsTextView.setText(getString(R.string.contentResource, getArguments().getInt(ARG_SERMON_INDEX)));
             return rootView;
+        }
+
+        private void playAudio() {
+            if(webClient == null)
+                return;
+            playMedia(webClient.getRssInterface().getSermon(sermonIndex).getAudioURL());
+        }
+        private void playVideo(){
+            if(webClient == null)
+                return;
+            playMedia(webClient.getRssInterface().getSermon(sermonIndex).getVideoURL());
+        }
+        private void playMedia(String url){
+            //Toast.makeText(getActivity(), url, Toast.LENGTH_LONG).show();
+            Log.d("net.conciencia", "URL: " + url);
+            getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         }
     }
 

@@ -21,6 +21,7 @@ import android.widget.ListView;
 public class SermonListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener {
 
     private SermonListInteraction mListener;
+    boolean isRefreshing;
 
     SwipeRefreshLayout fragmentSwipeRefreshLayout;
     ListView mListView;
@@ -73,6 +74,12 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        fragmentSwipeRefreshLayout.setRefreshing(isRefreshing);
+    }
+
+    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Sermon chosenSermon = (Sermon)parent.getAdapter().getItem(position);
         mListener.onSermonSelected(rssInterface, /*chosenSermon*/ position);
@@ -80,6 +87,7 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
 
     @Override
     public void onRefresh() {
+        isRefreshing = true;
         fragmentSwipeRefreshLayout.setRefreshing(true);
         AsyncTask<Void, Void, Boolean> refreshSermons = new UpdateSermonsTask();
         refreshSermons.execute();
@@ -87,6 +95,7 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
 
     public void onRefreshComplete(boolean status){
         fragmentSwipeRefreshLayout.setRefreshing(false);
+        isRefreshing = false;
         mListAdapter = new SermonListAdapter(getContext(), rssInterface.getSermons());
         mListView.setAdapter(mListAdapter);
         mListView.setOnItemClickListener(this);
