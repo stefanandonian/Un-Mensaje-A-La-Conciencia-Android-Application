@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,6 +56,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(args.getInt(Constants.SERMON_INDEX));
+        mSectionsPagerAdapter.notifyDataSetChanged();
     }
 
 
@@ -119,7 +120,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
                 return;
             titleTextView.setText(webClient.getRssInterface().getSermon(sermonIndex).getTitle());
             dateTextView.setText(webClient.getRssInterface().getSermon(sermonIndex).getPubDate());
-            message_contentsTextView.setText(webClient.getRssInterface().getSermon(sermonIndex).getText());
+            message_contentsTextView.setText(Html.fromHtml(webClient.getRssInterface().getSermon(sermonIndex).getText()));
         }
 
         @Override
@@ -142,7 +143,8 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_sermon, container, false);
+
             titleTextView = (TextView) rootView.findViewById(R.id.title);
             dateTextView = (TextView) rootView.findViewById(R.id.date);
             message_contentsTextView = (TextView) rootView.findViewById(R.id.message_content);
@@ -183,9 +185,23 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         }
 
         @Override
-        public CharSequence getPageTitle(int position) {
-            Log.d("net.conciencia.mensaje", "Title: "+rssInterface.getSermon(position).getTitle());
-            return rssInterface.getSermon(position-1).getTitle();
+        public int getItemPosition(Object object) {
+            if(object instanceof Sermon) {
+                return rssInterface.getSermonIndex((Sermon) object);
+            }
+            return 1;
         }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            if(true)
+                throw new NullPointerException();
+            return super.getPageTitle(position);
+        }
+/*@Override
+        public CharSequence getPageTitle(int position) {
+            Log.d("net.conciencia.mensaje", "Title: " + rssInterface.getSermon(position).getTitle());
+            return (CharSequence)rssInterface.getSermon(position-1).getTitle();
+        }//*/
     }
 }

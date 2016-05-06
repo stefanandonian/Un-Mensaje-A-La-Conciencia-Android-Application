@@ -4,7 +4,7 @@
                                               android:id="@+id/sermon_list_fragment"
                                               android:layout_width="match_parent"
                                               android:layout_height="match_parent"
-                                              tools:context="net.conciencia.mensajeandroid.SermonFragment">
+                                              tools:context=".SermonListFragment">
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

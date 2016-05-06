@@ -170,4 +170,11 @@ public class RSSInterface implements Parcelable {
             return new RSSInterface[size];
         }
     };
+
+    public int getSermonIndex(Sermon object) {
+        for(int i = 0; i < sermons.size(); ++i){
+
+        }
+        return -1;
+    }
 }

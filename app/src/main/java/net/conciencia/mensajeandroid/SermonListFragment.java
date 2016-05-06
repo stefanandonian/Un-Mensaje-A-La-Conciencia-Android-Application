@@ -18,7 +18,7 @@ import android.widget.ListView;
  * Activities containing this fragment MUST implement the {@link SermonListInteraction}
  * interface.
  */
-public class SermonFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener {
+public class SermonListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener {
 
     private SermonListInteraction mListener;
 
@@ -31,7 +31,7 @@ public class SermonFragment extends Fragment implements SwipeRefreshLayout.OnRef
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SermonFragment() {
+    public SermonListFragment() {
     }
 
     @Override

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class SermonListActivity extends AppCompatActivity implements SermonFragment.SermonListInteraction {
+public class SermonListActivity extends AppCompatActivity implements SermonListFragment.SermonListInteraction {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,7 +11,7 @@
     tools:context="net.conciencia.mensajeandroid.SermonListActivity">
 
     <fragment
-        android:name="net.conciencia.mensajeandroid.SermonFragment"
+        android:name="net.conciencia.mensajeandroid.SermonListFragment"
         android:id="@+id/fragmentView_sermon_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
