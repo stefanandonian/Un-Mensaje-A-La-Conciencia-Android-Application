@@ -8,12 +8,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="net.conciencia.mensajeandroid.SermonListActivity">
+    tools:context=".HomePageActivity">
+
+    <ImageView
+        android:id="@+id/concienciaBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/un_mensaje_al_conciencia_banner"/>
 
     <fragment
         android:name="net.conciencia.mensajeandroid.SermonListFragment"
         android:id="@+id/fragmentView_sermon_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/concienciaBanner"/>
 
 </RelativeLayout>
