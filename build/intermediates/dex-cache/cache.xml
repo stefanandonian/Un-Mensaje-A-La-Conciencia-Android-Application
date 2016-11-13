@@ -2,60 +2,94 @@
 <items version="2" >
 
     <item
-        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="32ab8bede8cd600f25a5bb3fe15068c81c8910dc">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0-alpha2_42d02125efeea65dabbfd4da16b25cfe3e4d36f3.jar" />
-    </item>
-    <item
-        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0-alpha2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="dc88341cbaaac9d67a982378e5df68d8c81289ed">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.0.0-alpha2_91a72d4e1d6ac1af955b7e2dc73f658da48215bd.jar" />
-    </item>
-    <item
-        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="661a632c3b434991d6364690cbe0f786371101cc">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.0.0-alpha2_c3db66fd2b9484b096ba72f9c9b22babe534b77d.jar" />
-    </item>
-    <item
-        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0-alpha2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
         sha1="df7f6513d6e2aaa302bbac654807c6129b517090">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.0.0-alpha2_28fe4e1a74488120756750b4e532ee74fdb57cce.jar" />
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.0.0-alpha2_e5e9d5f26e199c1f96ae6fa24681de2c8a5418cd/classes.dex" />
     </item>
     <item
-        jar="/Users/stefanandonian/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0-alpha2/support-annotations-24.0.0-alpha2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8071e1e6cd07e9253720313d6c14286a7ee424e0">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0-alpha2_ea190e6cfe964fe94cef25b08f3f9b405384ee00.jar" />
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="32ab8bede8cd600f25a5bb3fe15068c81c8910dc">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0-alpha2_7b2ff95aff9f5f87cd696cc44ff367afefd3f10e/classes.dex" />
     </item>
     <item
-        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha2/jars/libs/internal_impl-24.0.0-alpha2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="e460bc069dfd21d22770cf2a2370c9021b9c98a2">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0-alpha2_802acc91210e06952dffa479c03953dc22c2c8db.jar" />
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e365303cbd12a9da633a34d4f42d91b938ebca91">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_67ade2a2bc65ef134b20508b0221760cc12eb4e4/classes.dex" />
     </item>
     <item
-        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.0.0-alpha2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="2f417d93e1f62fd4fb4a2c0f3a4a882dd0ca7843">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.0.0-alpha2_8ca4fcf5bafb051127111d37451bde60fa42122d.jar" />
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="219d6cf574939ec7d7dc8acbc26591fff6b92175">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_846a0999cea6735dd4b5b2ee7d4b896424b5ecb5/classes.dex" />
     </item>
     <item
-        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0-alpha2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/exploded-aar/com.android.support/design/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="dc88341cbaaac9d67a982378e5df68d8c81289ed">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.0.0-alpha2_b38b206e062134b8b8c365722afa8d7d85d65bce/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
         sha1="bf5aa3b026d5b5fd9f4ab5e8cf13499b9e016dfb">
-        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/MensajeAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.0.0-alpha2_6b98de12b62b1c8cd81791220ae931e7716b7ac3.jar" />
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.0.0-alpha2_f87ce2fdab98a9e7ec5e1e8d95dfb9c14fd027b2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2f417d93e1f62fd4fb4a2c0f3a4a882dd0ca7843">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.0.0-alpha2_74a4b7b727034c54ed5213fcf02cc8698470be26/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0-alpha2/jars/libs/internal_impl-24.0.0-alpha2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e460bc069dfd21d22770cf2a2370c9021b9c98a2">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0-alpha2_24fc0a37af8ea930917c35c3152d2431781b7fe2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0-alpha2/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="661a632c3b434991d6364690cbe0f786371101cc">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.0.0-alpha2_952b6a71b315ff03ecd6d1eeecfb57dd8e2bcd9f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/stefanandonian/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0-alpha2/support-annotations-24.0.0-alpha2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8071e1e6cd07e9253720313d6c14286a7ee424e0">
+        <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0-alpha2_ea190e6cfe964fe94cef25b08f3f9b405384ee00/classes.dex" />
     </item>
 
 </items>
