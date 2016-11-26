@@ -19,6 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import net.conciencia.mensajeandroid.ContentLoaders.CaseOfTheWeekActivity;
+import net.conciencia.mensajeandroid.ContentLoaders.InformationActivity;
 
 public class SermonViewActivity extends AppCompatActivity implements RSSClient {
     RSSInterface rssInterface;
@@ -70,7 +74,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.message_menu, menu);
         return true;
     }
 
@@ -79,14 +83,19 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.case_of_the_week_message_menu:
+                intent = new Intent(this, CaseOfTheWeekActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.info_message_menu:
+                intent = new Intent(this, InformationActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -97,7 +106,10 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         int sermonIndex;
         TextView titleTextView;
         TextView dateTextView;
-        Button videoButton, audioButton;
+        Button videoButton;
+        Button audioButton;
+        Button emailButton;
+        Button internetButton;
         TextView message_contentsTextView;
 
         /**
@@ -173,7 +185,36 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
                 }
             });
             videoButton.setEnabled(true);
-
+            emailButton = (Button) rootView.findViewById(R.id.emailButton);
+            emailButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("message/rfc822");
+                    i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
+                    i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+                    try {
+                        startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            internetButton = (Button) rootView.findViewById(R.id.internetButton);
+            internetButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.message2conscience.com/cases.aspx"));
+                        startActivity(myIntent);
+                    } catch (Exception e) {
+                        Toast.makeText(getContext(), "No application can handle this request."
+                                + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
+                    }
+                }
+            });
             sermonIndex = getArguments().getInt(ARG_SERMON_INDEX);
             displaySermon();
 

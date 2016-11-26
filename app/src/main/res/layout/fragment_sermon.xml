@@ -33,11 +33,26 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/button_audio"
                     android:text="@string/play_audio"/>
+
+                <Button
+                    android:text="Web"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/internetButton"
+                    android:layout_weight="1" />
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/button_video"
                     android:text="@string/play_video"/>
+
+                <Button
+                    android:text="email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emailButton"
+                    android:layout_weight="1" />
             </LinearLayout>
         </LinearLayout>
     <ScrollView

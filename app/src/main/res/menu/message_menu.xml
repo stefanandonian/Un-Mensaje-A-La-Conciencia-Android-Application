@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="andoniantechnologies.tabsapp.MainActivity">
+
+    <item
+        android:title="caseOfTheWeek"
+        android:id="@+id/case_of_the_week_message_menu"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="Info"
+        android:id="@+id/info_message_menu"
+        app:showAsAction="always"
+        />
+</menu>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/lightGrey">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoTitle"
+        android:text="@string/app_name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/PObox"
+        android:text="Box 100"
+        android:layout_below="@id/infoTitle"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoStreetAddress"
+        android:text="Costa Mesa, CA 92628"
+        android:layout_below="@+id/PObox"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoTelephoneFax"
+        android:text="Tel: 949.645.0676 - Fax: 949.645.0374"
+        android:layout_below="@+id/infoStreetAddress"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/concienciaEmailButton"
+        android:text="info@conciencia.net"
+        android:background="@color/white"
+        android:layout_below="@+id/infoStreetAddress"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/concienciaWebPage"
+        android:text="http://www.conciencia.net/"
+        android:background="@color/white"
+        android:layout_below="@+id/concienciaEmailButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/facebook"
+        android:text="Facebook"
+        android:background="@color/white"
+        android:layout_below="@+id/concienciaWebPage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoDisclaimer"
+        android:layout_below="@+id/facebook"
+        android:text="Esta aplicacion se brinda como un servicio sin garantias expresas y depende de la
+         disponibilidad de Internet. La misma ha sido desarrollada por Logica Digital. Sus comentarios son bienvenidos en apple@logicadigital.net"
+        android:gravity="bottom|center"/>
+
+
+</RelativeLayout>

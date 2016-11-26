@@ -19,7 +19,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 /**
- * RSS interface for Un Mensaje A La Conciencia's website
+ * RSS interface for    Un Mensaje A La Conciencia's website
  */
 public class RSSInterface implements Parcelable {
     private static final String UN_MENSAJE_RSS_FEED = "http://conciencia.net/rss.aspx";
