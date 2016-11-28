@@ -1,23 +1,20 @@
-package net.conciencia.mensajeandroid.ContentLoaders;
+package net.conciencia.mensajeandroid;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import net.conciencia.mensajeandroid.R;
 
 public class InformationActivity extends AppCompatActivity {
 
@@ -26,6 +23,10 @@ public class InformationActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
+    Button emailButton;
+    Button facebookButton;
+    Button concienciaDotNetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,30 @@ public class InformationActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        emailButton = (Button) findViewById(R.id.concienciaEmailButton);
+        emailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendEmail();
+            }
+        });
+
+        facebookButton = (Button) findViewById(R.id.facebookButton);
+        facebookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openWebPage("https://www.facebook.com/mensajeAconciencia/");
+            }
+        });
+
+        concienciaDotNetButton = (Button) findViewById(R.id.concienciaWebPage);
+        concienciaDotNetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openWebPage("http://www.conciencia.net/");
+            }
+        });
     }
 
     private void sendEmail() {
@@ -45,7 +70,6 @@ public class InformationActivity extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"Recipient"});
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Message Body");
-
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
             finish();
@@ -53,6 +77,11 @@ public class InformationActivity extends AppCompatActivity {
         } catch (ActivityNotFoundException ex) {
             Toast.makeText(InformationActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void openWebPage(String uri) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(browserIntent);
     }
 
     /**

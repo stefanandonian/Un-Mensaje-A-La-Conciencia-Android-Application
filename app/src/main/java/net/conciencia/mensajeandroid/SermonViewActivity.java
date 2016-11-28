@@ -21,9 +21,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.conciencia.mensajeandroid.ContentLoaders.CaseOfTheWeekActivity;
-import net.conciencia.mensajeandroid.ContentLoaders.InformationActivity;
-
 public class SermonViewActivity extends AppCompatActivity implements RSSClient {
     RSSInterface rssInterface;
 

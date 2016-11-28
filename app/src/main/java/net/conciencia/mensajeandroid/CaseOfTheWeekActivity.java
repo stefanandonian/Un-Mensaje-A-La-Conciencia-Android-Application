@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.ContentLoaders;
+package net.conciencia.mensajeandroid;
 
 import android.app.Activity;
 import android.os.Bundle;
