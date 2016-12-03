@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid;
+package net.conciencia.mensajeandroid.Activitys;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import net.conciencia.mensajeandroid.R;
+
 public class InformationActivity extends AppCompatActivity {
 
     /**
@@ -32,7 +34,7 @@ public class InformationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_layout);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tbar);
         setSupportActionBar(toolbar);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.

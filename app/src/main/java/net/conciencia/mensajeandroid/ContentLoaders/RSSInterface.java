@@ -1,10 +1,12 @@
-package net.conciencia.mensajeandroid;
+package net.conciencia.mensajeandroid.ContentLoaders;
 
 /**
  * Created by smccollum on 05.05.16.
  */
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import net.conciencia.mensajeandroid.Objects.Sermon;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid;
+package net.conciencia.mensajeandroid.Fragments;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -11,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import net.conciencia.mensajeandroid.Adapters.SermonListAdapter;
+import net.conciencia.mensajeandroid.R;
+import net.conciencia.mensajeandroid.ContentLoaders.RSSInterface;
+import net.conciencia.mensajeandroid.Objects.Sermon;
 
 /**
  * A fragment representing a list of Items.

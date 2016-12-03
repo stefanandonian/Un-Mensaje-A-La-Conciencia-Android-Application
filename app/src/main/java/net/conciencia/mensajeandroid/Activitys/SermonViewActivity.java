@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid;
+package net.conciencia.mensajeandroid.Activitys;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import net.conciencia.mensajeandroid.Constants;
+import net.conciencia.mensajeandroid.R;
+import net.conciencia.mensajeandroid.ContentLoaders.RSSClient;
+import net.conciencia.mensajeandroid.ContentLoaders.RSSInterface;
+import net.conciencia.mensajeandroid.Objects.Sermon;
 
 public class SermonViewActivity extends AppCompatActivity implements RSSClient {
     RSSInterface rssInterface;

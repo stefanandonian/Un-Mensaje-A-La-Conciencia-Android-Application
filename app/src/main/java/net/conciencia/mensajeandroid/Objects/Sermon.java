@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid;
+package net.conciencia.mensajeandroid.Objects;
 
 import android.os.Parcel;
 import android.os.Parcelable;

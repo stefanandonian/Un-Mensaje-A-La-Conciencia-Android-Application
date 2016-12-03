@@ -5,7 +5,7 @@
     android:id="@+id/sermon_list_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SermonListFragment"
+    tools:context=".Fragments.SermonListFragment"
     android:background="@drawable/rectangle_border">
 
     <ListView

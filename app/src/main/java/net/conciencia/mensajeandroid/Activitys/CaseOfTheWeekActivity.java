@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid;
+package net.conciencia.mensajeandroid.Activitys;
 
 import android.app.Activity;
 import android.os.Bundle;

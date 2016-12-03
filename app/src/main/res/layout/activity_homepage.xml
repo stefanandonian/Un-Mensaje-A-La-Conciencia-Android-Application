@@ -8,7 +8,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context=".HomePageActivity"
+    tools:context=".Activitys.HomePageActivity"
     android:background="@color/lightGrey">
 
     <ImageView
@@ -19,7 +19,7 @@
         android:scaleType="fitXY" />
 
     <fragment
-        android:name="net.conciencia.mensajeandroid.SermonListFragment"
+        android:name="net.conciencia.mensajeandroid.Fragments.SermonListFragment"
         android:id="@+id/fragmentView_sermon_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

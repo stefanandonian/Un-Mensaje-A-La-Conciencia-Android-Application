@@ -1,10 +1,15 @@
-package net.conciencia.mensajeandroid;
+package net.conciencia.mensajeandroid.Activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import net.conciencia.mensajeandroid.Constants;
+import net.conciencia.mensajeandroid.R;
+import net.conciencia.mensajeandroid.ContentLoaders.RSSInterface;
+import net.conciencia.mensajeandroid.Fragments.SermonListFragment;
 
 public class HomePageActivity extends AppCompatActivity implements SermonListFragment.SermonListInteraction {
 
