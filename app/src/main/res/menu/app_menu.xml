@@ -1,16 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="andoniantechnologies.tabsapp.MainActivity">
+      tools:context="andoniantechnologies.tabsapp.MainActivity"
+      android:icon="@drawable/concienciaicon"
+      android:id="@+id/app_menu">
 
     <item
         android:title="caseOfTheWeek"
-        android:id="@+id/case_of_the_week_message_menu"
+        android:id="@+id/go_to_caseOfTheWeek"
         app:showAsAction="ifRoom"/>
 
     <item
         android:title="Info"
-        android:id="@+id/info_message_menu"
+        android:id="@+id/go_to_information"
         app:showAsAction="always"
         />
 </menu>

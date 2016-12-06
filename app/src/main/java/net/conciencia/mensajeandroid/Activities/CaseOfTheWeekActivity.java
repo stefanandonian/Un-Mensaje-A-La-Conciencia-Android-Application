@@ -1,8 +1,6 @@
-package net.conciencia.mensajeandroid.Activitys;
+package net.conciencia.mensajeandroid.Activities;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import net.conciencia.mensajeandroid.R;
 
@@ -10,7 +8,8 @@ import net.conciencia.mensajeandroid.R;
  * Created by stefanandonian on 11/22/16.
  */
 
-public class CaseOfTheWeekActivity extends AppCompatActivity {
+// DONT DO, SHOULD BE IMPLEMENTED AS A FRAGMENT
+public class CaseOfTheWeekActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

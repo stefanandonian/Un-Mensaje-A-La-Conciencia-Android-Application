@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sermon_list_fragment"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     tools:context=".Fragments.SermonListFragment"
-    android:background="@drawable/rectangle_border">
+    android:id="@+id/sermon_list_fragment"
+    android:background="@color/lightGrey"
+    android:layout_margin="0dp">
 
-    <ListView
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/concienciaBanner_ImageView"
+        android:src="@drawable/un_mensaje_al_conciencia_banner_9"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:scaleType="fitXY" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_sermon_list"></ListView>
+        android:id="@+id/messagelist_SwipeRefreshLayout"
+        android:layout_margin="16dp"
+        android:background="@drawable/rectangle_border"
+        android:layout_below="@id/concienciaBanner_ImageView" >
 
-</android.support.v4.widget.SwipeRefreshLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_sermon_list"></ListView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

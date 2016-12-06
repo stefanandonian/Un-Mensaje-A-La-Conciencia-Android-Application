@@ -10,7 +10,7 @@
         android:label="Mensajes"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activitys.HomePageActivity">
+        <activity android:name=".Activities.MessageListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activitys.SermonViewActivity"
-            android:parentActivityName=".Activitys.HomePageActivity"
+            android:name=".Activities.SermonViewActivity"
+            android:parentActivityName=".Activities.MessageListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,11 +29,10 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activitys.HomePageActivity" />
+                android:value=".Activities.MessageListActivity" />
         </activity>
         <activity
-            android:name=".Activitys.InformationActivity"
-            android:label="@string/title_activity_information"
+            android:name=".Activities.CaseOfTheWeekActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data

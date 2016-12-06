@@ -53,13 +53,12 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
 
         mListView = (ListView)view.findViewById(R.id.lv_sermon_list);
 
-        fragmentSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.sermon_list_fragment);
+        fragmentSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.messagelist_SwipeRefreshLayout);
         fragmentSwipeRefreshLayout.setOnRefreshListener(this);
         onRefresh();
 
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {
