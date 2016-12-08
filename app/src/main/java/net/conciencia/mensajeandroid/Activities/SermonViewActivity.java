@@ -51,7 +51,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sermon_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.sermonview_toolbar);
         setSupportActionBar(toolbar);
 
         if(getSupportActionBar() != null)

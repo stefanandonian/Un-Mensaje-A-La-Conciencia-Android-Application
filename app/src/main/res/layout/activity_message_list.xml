@@ -9,7 +9,7 @@
                 tools:context=".Activities.MessageListActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/activity_message_list_app_bar"
+        android:id="@+id/activity_messagelist_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/appbar_padding_top"
@@ -34,11 +34,11 @@
         android:src="@drawable/un_mensaje_al_conciencia_banner_9"
         android:layout_height="@android:dimen/thumbnail_height"
         android:scaleType="fitXY"
-        android:layout_below="@id/activity_message_list_app_bar"/>
+        android:layout_below="@id/activity_messagelist_appbar"/>
 
     <fragment
         android:name="net.conciencia.mensajeandroid.Fragments.SermonListFragment"
-        android:id="@+id/fragmentView_sermon_list"
+        android:id="@+id/sermonList_Fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/concienciaBanner"

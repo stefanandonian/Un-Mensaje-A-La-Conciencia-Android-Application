@@ -1,13 +1,9 @@
 package net.conciencia.mensajeandroid.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import net.conciencia.mensajeandroid.Fragments.InformationFragment;
 import net.conciencia.mensajeandroid.R;
 
 /**
@@ -21,7 +17,7 @@ public abstract class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.menu_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.sermonview_toolbar);
         setSupportActionBar(toolbar);
     }
 

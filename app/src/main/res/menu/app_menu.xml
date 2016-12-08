@@ -1,17 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="andoniantechnologies.tabsapp.MainActivity"
-      android:icon="@drawable/concienciaicon"
-      android:id="@+id/app_menu">
+      tools:context=".Activities.MessageListActivity"
+      android:id="@+id/app_menu" >
 
     <item
-        android:title="caseOfTheWeek"
+        android:title="Message"
+        android:id="@+id/go_to_messageList"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="COTW"
         android:id="@+id/go_to_caseOfTheWeek"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
     <item
-        android:title="Info"
+        android:title="INFO"
         android:id="@+id/go_to_information"
         app:showAsAction="always"
         />

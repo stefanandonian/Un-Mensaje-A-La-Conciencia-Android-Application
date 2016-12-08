@@ -2,6 +2,8 @@ package net.conciencia.mensajeandroid.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -20,8 +22,9 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.menu_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
 
@@ -49,18 +52,24 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        Intent intent;
+        Fragment fragment = new InformationFragment();
         switch (item.getItemId()) {
+            case R.id.go_to_messageList:
+                fragment = new SermonListFragment();
+                break;
             case R.id.go_to_caseOfTheWeek:
-                intent = new Intent(this, CaseOfTheWeekActivity.class);
+                Intent intent = new Intent(this, CaseOfTheWeekActivity.class);
                 startActivity(intent);
-                return true;
+                break;
             case R.id.go_to_information:
-                intent = new Intent(this, InformationFragment.class);
-                startActivity(intent);
-                return true;
+                fragment = new InformationFragment();
+                break;
             default:
-                return super.onOptionsItemSelected(item);
+                break;
         }
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.sermonList_Fragment, fragment);
+        transaction.commit();
+        return true;
     }
 }
