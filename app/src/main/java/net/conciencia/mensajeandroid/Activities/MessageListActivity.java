@@ -10,9 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import net.conciencia.mensajeandroid.Constants;
+import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 import net.conciencia.mensajeandroid.Fragments.InformationFragment;
 import net.conciencia.mensajeandroid.R;
-import net.conciencia.mensajeandroid.ContentLoaders.RSSInterface;
 import net.conciencia.mensajeandroid.Fragments.SermonListFragment;
 
 public class MessageListActivity extends AppCompatActivity implements SermonListFragment.SermonListInteraction {
@@ -29,12 +29,12 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
 
 
     @Override
-    public void onSermonSelected(RSSInterface rssInterface, int sermonIndex) {
+    public void onSermonSelected(MessageLoader messageLoader, int sermonIndex) {
         //todo
-        //Toast.makeText(this, String.format("Sermon %s (%s) selected", sermon.getTitle(), sermon.getPubDate()), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, String.format("Message %s (%s) selected", sermon.getTitle(), sermon.getPubDate()), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MessageListActivity.this, SermonViewActivity.class);
         Bundle extras = new Bundle();
-        extras.putParcelable(Constants.RSS_EXTRA, rssInterface);
+        extras.putParcelable(Constants.RSS_EXTRA, messageLoader);
         extras.putInt(Constants.SERMON_INDEX, sermonIndex);
         intent.putExtras(extras);
         startActivity(intent);

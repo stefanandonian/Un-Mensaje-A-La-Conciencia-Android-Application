@@ -22,14 +22,14 @@ import android.widget.Toast;
 import net.conciencia.mensajeandroid.Constants;
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.ContentLoaders.RSSClient;
-import net.conciencia.mensajeandroid.ContentLoaders.RSSInterface;
-import net.conciencia.mensajeandroid.Objects.Sermon;
+import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
+import net.conciencia.mensajeandroid.Objects.Message;
 
 public class SermonViewActivity extends AppCompatActivity implements RSSClient {
-    RSSInterface rssInterface;
+    MessageLoader messageLoader;
 
-    public RSSInterface getRssInterface(){
-        return rssInterface;
+    public MessageLoader getMessageLoader(){
+        return messageLoader;
     }
 
     /**
@@ -58,7 +58,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle args = getIntent().getExtras();
-        rssInterface = args.getParcelable(Constants.RSS_EXTRA);
+        messageLoader = args.getParcelable(Constants.RSS_EXTRA);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -111,9 +111,9 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
                     ||dateTextView == null
                     ||message_contentsTextView == null)
                 return;
-            titleTextView.setText(webClient.getRssInterface().getSermon(sermonIndex).getTitle());
-            dateTextView.setText(webClient.getRssInterface().getSermon(sermonIndex).getPubDate());
-            message_contentsTextView.setText(Html.fromHtml(webClient.getRssInterface().getSermon(sermonIndex).getText()));
+            titleTextView.setText(webClient.getMessageLoader().getSermon(sermonIndex).getTitle());
+            dateTextView.setText(webClient.getMessageLoader().getSermon(sermonIndex).getPubDate());
+            message_contentsTextView.setText(Html.fromHtml(webClient.getMessageLoader().getSermon(sermonIndex).getText()));
         }
 
         @Override
@@ -200,12 +200,12 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         private void playAudio() {
             if(webClient == null)
                 return;
-            playMedia(webClient.getRssInterface().getSermon(sermonIndex).getAudioURL());
+            playMedia(webClient.getMessageLoader().getSermon(sermonIndex).getAudioURL());
         }
         private void playVideo(){
             if(webClient == null)
                 return;
-            playMedia(webClient.getRssInterface().getSermon(sermonIndex).getVideoURL());
+            playMedia(webClient.getMessageLoader().getSermon(sermonIndex).getVideoURL());
         }
         private void playMedia(String url){
             //Toast.makeText(getActivity(), url, Toast.LENGTH_LONG).show();
@@ -234,15 +234,15 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         @Override
         public int getCount() {
             // Show 7 total pages.
-            if(rssInterface != null)
-                return rssInterface.getSermons().size();
+            if(messageLoader != null)
+                return messageLoader.getMessages().size();
             return 1;
         }
 
         @Override
         public int getItemPosition(Object object) {
-            if(object instanceof Sermon) {
-                return rssInterface.getSermonIndex((Sermon) object);
+            if(object instanceof Message) {
+                return messageLoader.getSermonIndex((Message) object);
             }
             return 1;
         }
@@ -255,8 +255,8 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         }
 /*@Override
         public CharSequence getPageTitle(int position) {
-            Log.d("net.conciencia.mensaje", "Title: " + rssInterface.getSermon(position).getTitle());
-            return (CharSequence)rssInterface.getSermon(position-1).getTitle();
+            Log.d("net.conciencia.mensaje", "Title: " + messageLoader.getSermon(position).getTitle());
+            return (CharSequence)messageLoader.getSermon(position-1).getTitle();
         }//*/
     }
 }

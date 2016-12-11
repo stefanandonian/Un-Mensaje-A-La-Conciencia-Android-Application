@@ -8,42 +8,42 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import net.conciencia.mensajeandroid.R;
-import net.conciencia.mensajeandroid.Objects.Sermon;
+import net.conciencia.mensajeandroid.Objects.Message;
 
 import java.util.List;
 
 /**
  * Created by smccollum on 04.05.16.
  */
-public class SermonListAdapter extends ArrayAdapter<Sermon> {
+public class SermonListAdapter extends ArrayAdapter<Message> {
 
-    public SermonListAdapter(Context context, Sermon[] sermons){
-        super(context, R.layout.sermon_list_item, sermons);
+    public SermonListAdapter(Context context, Message[] messages){
+        super(context, R.layout.sermon_list_item, messages);
     }
-    public SermonListAdapter(Context context, List<Sermon> sermonList){
-        this(context, makeArray(sermonList));
+    public SermonListAdapter(Context context, List<Message> messageList){
+        this(context, makeArray(messageList));
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View sermonItem = layoutInflater.inflate(R.layout.sermon_list_item, parent, false);
-        Sermon sermon = getItem(position);
+        Message message = getItem(position);
 
         TextView titleView = (TextView)sermonItem.findViewById(R.id.sermonTitle);
-        titleView.setText(sermon.getTitle());
+        titleView.setText(message.getTitle());
         TextView dateView = (TextView)sermonItem.findViewById(R.id.sermonDate);
-        dateView.setText(sermon.getPubDate());
+        dateView.setText(message.getPubDate());
 
         return sermonItem;
     }
 
-    private static Sermon[] makeArray(List<Sermon> sermonList){
-        Sermon[] sermonArray = new Sermon[sermonList.size()];
+    private static Message[] makeArray(List<Message> messageList){
+        Message[] messageArray = new Message[messageList.size()];
         int i = 0;
-        for(Sermon sermon : sermonList){
-            sermonArray[i++] = sermon;
+        for(Message message : messageList){
+            messageArray[i++] = message;
         }
-        return sermonArray;
+        return messageArray;
     }
 }

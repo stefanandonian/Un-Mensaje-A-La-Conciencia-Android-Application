@@ -13,9 +13,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import net.conciencia.mensajeandroid.Adapters.SermonListAdapter;
+import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 import net.conciencia.mensajeandroid.R;
-import net.conciencia.mensajeandroid.ContentLoaders.RSSInterface;
-import net.conciencia.mensajeandroid.Objects.Sermon;
+import net.conciencia.mensajeandroid.Objects.Message;
 
 /**
  * A fragment representing a list of Items.
@@ -31,7 +31,7 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
     SwipeRefreshLayout fragmentSwipeRefreshLayout;
     ListView mListView;
     ListAdapter mListAdapter;
-    RSSInterface rssInterface;
+    MessageLoader messageLoader;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -43,7 +43,7 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        rssInterface = new RSSInterface();
+        messageLoader = new MessageLoader();
     }
 
     @Override
@@ -85,8 +85,8 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Sermon chosenSermon = (Sermon)parent.getAdapter().getItem(position);
-        mListener.onSermonSelected(rssInterface, /*chosenSermon*/ position);
+        Message chosenMessage = (Message)parent.getAdapter().getItem(position);
+        mListener.onSermonSelected(messageLoader, /*chosenMessage*/ position);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
     public void onRefreshComplete(boolean status){
         fragmentSwipeRefreshLayout.setRefreshing(false);
         isRefreshing = false;
-        mListAdapter = new SermonListAdapter(getContext(), rssInterface.getSermons());
+        mListAdapter = new SermonListAdapter(getContext(), messageLoader.getMessages());
         mListView.setAdapter(mListAdapter);
         mListView.setOnItemClickListener(this);
     }
@@ -116,13 +116,13 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface SermonListInteraction {
-        void onSermonSelected(RSSInterface rssInterface, int sermonIndex);
+        void onSermonSelected(MessageLoader messageLoader, int sermonIndex);
     }
 
     public class UpdateSermonsTask extends AsyncTask<Void, Void, Boolean>{
         @Override
         protected Boolean doInBackground(Void... params) {
-            return rssInterface.loadSermonsFromWeb();
+            return messageLoader.loadSermonsFromWeb();
         }
 
         @Override

@@ -3,7 +3,7 @@ package net.conciencia.mensajeandroid.Objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Sermon implements Parcelable {
+public class Message implements Parcelable {
     private String title;
     private String link;
     private String guid;
@@ -14,7 +14,7 @@ public class Sermon implements Parcelable {
     private String videoURL;
     private String duration;
 
-    public Sermon(String title, String link, String guid, String pubDate, String author, String text, String audioURL, String videoURL, String duration) {
+    public Message(String title, String link, String guid, String pubDate, String author, String text, String audioURL, String videoURL, String duration) {
         this.title       = title;
         this.link        = link;
         this.guid        = guid;
@@ -28,7 +28,7 @@ public class Sermon implements Parcelable {
         System.out.println(this);
     }
 
-    public Sermon(Parcel source) {
+    public Message(Parcel source) {
         title = source.readString();
         link = source.readString();
         guid = source.readString();
@@ -78,7 +78,7 @@ public class Sermon implements Parcelable {
 
     @Override
     public String toString() {
-        return "Sermon{" +
+        return "Message{" +
                 "title='" + title + '\'' +
                 ", link='" + link + '\'' +
                 ", guid='" + guid + '\'' +
@@ -109,16 +109,16 @@ public class Sermon implements Parcelable {
         dest.writeString(duration);
     }
 
-    public static final Parcelable.Creator<Sermon> CREATOR = new Parcelable.Creator<Sermon>(){
+    public static final Parcelable.Creator<Message> CREATOR = new Parcelable.Creator<Message>(){
 
         @Override
-        public Sermon createFromParcel(Parcel source) {
-            return new Sermon(source);
+        public Message createFromParcel(Parcel source) {
+            return new Message(source);
         }
 
         @Override
-        public Sermon[] newArray(int size) {
-            return new Sermon[size];
+        public Message[] newArray(int size) {
+            return new Message[size];
         }
     };
 
