@@ -16,7 +16,7 @@ public class InformationFragment extends Fragment {
 
     Button emailButton;
     Button facebookButton;
-    Button concienciaDotNetButton;
+    Button internet_message_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,8 @@ public class InformationFragment extends Fragment {
             }
         });
 
-        concienciaDotNetButton = (Button) informationView.findViewById(R.id.concienciaWebPage);
-        concienciaDotNetButton.setOnClickListener(new View.OnClickListener() {
+        internet_message_button = (Button) informationView.findViewById(R.id.concienciaWebPage);
+        internet_message_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openWebPage("http://www.conciencia.net/");

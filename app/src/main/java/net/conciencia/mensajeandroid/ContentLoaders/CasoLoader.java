@@ -1,6 +1,7 @@
 package net.conciencia.mensajeandroid.ContentLoaders;
 
 import android.os.Parcelable;
+import android.text.Html;
 
 import net.conciencia.mensajeandroid.Objects.CasoDelSemana;
 
@@ -18,10 +19,11 @@ public class CasoLoader {
     private static final String UN_MENSAJE_CASOS_FEED = "http://conciencia.net/api/casos.asmx/get?id=0";
 
     public static void main(String[] args) {
-        System.out.println(getCaso().getText());
+        CasoLoader casoLoader = new CasoLoader();
+        System.out.println(casoLoader.formatText(casoLoader.getCaso().getText()));
     }
 
-    public static Element getElementFromXML() {
+    public Element getElementFromXML() {
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(UN_MENSAJE_CASOS_FEED).getDocumentElement();
         } catch (ParserConfigurationException pce) {
@@ -34,14 +36,22 @@ public class CasoLoader {
         return null;
     }
 
-    public static CasoDelSemana getCaso() {
+    public CasoDelSemana getCaso() {
         String text = getElementFromXML().getElementsByTagName("text").item(0).getFirstChild().getNodeValue();
         String id   = getElementFromXML().getElementsByTagName("id").item(0).getFirstChild().getNodeValue();
-        String date = getElementFromXML().getElementsByTagName("date").item(0).getFirstChild().getNodeValue();
+        String date = formatDate(getElementFromXML().getElementsByTagName("date").item(0).getFirstChild().getNodeValue());
         String title = getElementFromXML().getElementsByTagName("title").item(0).getFirstChild().getNodeValue();
         String topic = getElementFromXML().getElementsByTagName("topic").item(0).getFirstChild().getNodeValue();
         CasoDelSemana casoDelSemana = new CasoDelSemana(id, date, title, text, topic);
         return casoDelSemana;
+    }
+
+    private String formatText(String text) {
+        return Html.fromHtml(text).toString();
+    }
+
+    private String formatDate(String date) {
+        return date;
     }
 
 }

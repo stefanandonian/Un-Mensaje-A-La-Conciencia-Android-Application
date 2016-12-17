@@ -36,7 +36,7 @@ public class MessageLoader implements Parcelable {
 
     public static void main(String[] args) {
         MessageLoader umr = new MessageLoader();
-        System.out.println("Retrieving information from web..." + (umr.loadSermonsFromWeb() ? "Successful" : "Failed!"));
+        System.out.println("Retrieving information from web..." + (umr.loadMessagesFromWeb() ? "Successful" : "Failed!"));
         System.out.println("Printing Items...");
         System.out.println(umr.getMessages());
         System.out.println("Finished Printing Items...");
@@ -46,7 +46,7 @@ public class MessageLoader implements Parcelable {
      * Load the messages from the site so that they can be accessed
      * @return
      */
-    public boolean loadSermonsFromWeb(){
+    public boolean loadMessagesFromWeb(){
         long startTime = System.currentTimeMillis();
         NodeList feed = getNodeListFromXML();
         System.out.printf("Duration: %fs\n", (double)((System.currentTimeMillis()-startTime)));
@@ -172,7 +172,7 @@ public class MessageLoader implements Parcelable {
 
     public int getSermonIndex(Message object) {
         for(int i = 0; i < messages.size(); ++i){
-
+            // not complete, made by sam
         }
         return -1;
     }

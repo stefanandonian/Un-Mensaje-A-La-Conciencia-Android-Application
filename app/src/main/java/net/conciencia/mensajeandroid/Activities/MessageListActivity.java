@@ -11,17 +11,18 @@ import android.view.MenuItem;
 
 import net.conciencia.mensajeandroid.Constants;
 import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
+import net.conciencia.mensajeandroid.Fragments.CasoFragment;
 import net.conciencia.mensajeandroid.Fragments.InformationFragment;
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.Fragments.SermonListFragment;
 
-public class MessageListActivity extends AppCompatActivity implements SermonListFragment.SermonListInteraction {
+public class MessageListActivity extends AppCompatActivity implements SermonListFragment.MessageListInteraction {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.menu_activity);
+        setContentView(R.layout.activity_message_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -58,8 +59,7 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
                 fragment = new SermonListFragment();
                 break;
             case R.id.go_to_caseOfTheWeek:
-                Intent intent = new Intent(this, CaseOfTheWeekActivity.class);
-                startActivity(intent);
+                fragment = new CasoFragment();
                 break;
             case R.id.go_to_information:
                 fragment = new InformationFragment();
@@ -69,6 +69,7 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
         }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.sermonList_Fragment, fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
         return true;
     }

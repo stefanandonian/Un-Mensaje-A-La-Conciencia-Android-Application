@@ -20,12 +20,12 @@ import net.conciencia.mensajeandroid.Objects.Message;
 /**
  * A fragment representing a list of Items.
  * <p>
- * Activities containing this fragment MUST implement the {@link SermonListInteraction}
+ * Activities containing this fragment MUST implement the {@link MessageListInteraction}
  * interface.
  */
 public class SermonListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener {
 
-    private SermonListInteraction mListener;
+    private MessageListInteraction mListener;
     boolean isRefreshing;
 
     SwipeRefreshLayout fragmentSwipeRefreshLayout;
@@ -63,11 +63,11 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof SermonListInteraction) {
-            mListener = (SermonListInteraction) context;
+        if (context instanceof MessageListInteraction) {
+            mListener = (MessageListInteraction) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement SermonListInteraction");
+                    + " must implement MessageListInteraction");
         }
     }
 
@@ -93,7 +93,7 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
     public void onRefresh() {
         isRefreshing = true;
         fragmentSwipeRefreshLayout.setRefreshing(true);
-        AsyncTask<Void, Void, Boolean> refreshSermons = new UpdateSermonsTask();
+        AsyncTask<Void, Void, Boolean> refreshSermons = new UpdateMessageTask();
         refreshSermons.execute();
     }
 
@@ -115,14 +115,14 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface SermonListInteraction {
+    public interface MessageListInteraction {
         void onSermonSelected(MessageLoader messageLoader, int sermonIndex);
     }
 
-    public class UpdateSermonsTask extends AsyncTask<Void, Void, Boolean>{
+    public class UpdateMessageTask extends AsyncTask<Void, Void, Boolean>{
         @Override
         protected Boolean doInBackground(Void... params) {
-            return messageLoader.loadSermonsFromWeb();
+            return messageLoader.loadMessagesFromWeb();
         }
 
         @Override

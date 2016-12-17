@@ -113,7 +113,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
                 return;
             titleTextView.setText(webClient.getMessageLoader().getSermon(sermonIndex).getTitle());
             dateTextView.setText(webClient.getMessageLoader().getSermon(sermonIndex).getPubDate());
-            message_contentsTextView.setText(Html.fromHtml(webClient.getMessageLoader().getSermon(sermonIndex).getText()));
+            message_contentsTextView.setText(Html.fromHtml(webClient.getMessageLoader().getSermon(sermonIndex).getText()).toString());
         }
 
         @Override
