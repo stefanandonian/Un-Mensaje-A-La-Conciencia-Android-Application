@@ -23,7 +23,7 @@ import net.conciencia.mensajeandroid.Objects.Message;
  * Activities containing this fragment MUST implement the {@link MessageListInteraction}
  * interface.
  */
-public class SermonListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener {
+public class MessageListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener {
 
     private MessageListInteraction mListener;
     boolean isRefreshing;
@@ -37,7 +37,7 @@ public class SermonListFragment extends Fragment implements SwipeRefreshLayout.O
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SermonListFragment() {
+    public MessageListFragment() {
     }
 
     @Override

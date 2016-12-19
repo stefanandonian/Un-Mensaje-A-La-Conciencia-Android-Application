@@ -3,6 +3,7 @@ package net.conciencia.mensajeandroid.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,9 +15,9 @@ import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 import net.conciencia.mensajeandroid.Fragments.CasoFragment;
 import net.conciencia.mensajeandroid.Fragments.InformationFragment;
 import net.conciencia.mensajeandroid.R;
-import net.conciencia.mensajeandroid.Fragments.SermonListFragment;
+import net.conciencia.mensajeandroid.Fragments.MessageListFragment;
 
-public class MessageListActivity extends AppCompatActivity implements SermonListFragment.MessageListInteraction {
+public class MessageListActivity extends AppCompatActivity implements MessageListFragment.MessageListInteraction {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,12 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        FragmentManager fM = getSupportFragmentManager();
+        FragmentTransaction fT = fM.beginTransaction();
+        Fragment messageListFragment = new MessageListFragment();
+        fT.replace(R.id.message_list_fragment_container, messageListFragment);
+        fT.commit();
     }
 
 
@@ -56,7 +63,7 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
         Fragment fragment = new InformationFragment();
         switch (item.getItemId()) {
             case R.id.go_to_messageList:
-                fragment = new SermonListFragment();
+                fragment = new MessageListFragment();
                 break;
             case R.id.go_to_caseOfTheWeek:
                 fragment = new CasoFragment();
@@ -68,7 +75,7 @@ public class MessageListActivity extends AppCompatActivity implements SermonList
                 break;
         }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.sermonList_Fragment, fragment);
+        transaction.replace(R.id.message_list_fragment_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
         return true;

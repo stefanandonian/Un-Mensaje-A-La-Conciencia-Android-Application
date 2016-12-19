@@ -20,7 +20,7 @@
             android:id="@+id/main_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/lightGrey"
+            android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -28,11 +28,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <fragment
-        android:name="net.conciencia.mensajeandroid.Fragments.SermonListFragment"
-        android:id="@+id/sermonList_Fragment"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_sermon_list" />
+        android:layout_height="wrap_content"
+
+        android:id="@+id/message_list_fragment_container">
+
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

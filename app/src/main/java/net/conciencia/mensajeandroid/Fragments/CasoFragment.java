@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import net.conciencia.mensajeandroid.ContentLoaders.CasoLoader;
-import net.conciencia.mensajeandroid.Objects.CasoDelSemana;
+import net.conciencia.mensajeandroid.Objects.CasoDeLaSemana;
 import net.conciencia.mensajeandroid.R;
 
 /**
@@ -25,12 +25,10 @@ public class CasoFragment extends Fragment {
     TextView caso_title_id;
     TextView caso_date;
     TextView caso_text;
-
     Button emailButton;
     Button internetButton;
 
-    CasoLoader casoLoader;
-    CasoDelSemana casoDelSemana;
+    CasoDeLaSemana casoDeLaSemana;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,10 +47,10 @@ public class CasoFragment extends Fragment {
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendEmail();
+                sendEmailToLinda();
             }
         });
-        internetButton = (Button) casoView.findViewById(R.id.caso_email_button);
+        internetButton = (Button) casoView.findViewById(R.id.caso_internet_button);
         internetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +58,6 @@ public class CasoFragment extends Fragment {
             }
         });
 
-        casoLoader = new CasoLoader();
         UpdateCasoTask updateCasoTask = new UpdateCasoTask();
         updateCasoTask.execute();
 
@@ -68,19 +65,9 @@ public class CasoFragment extends Fragment {
     }
 
     // Needs more implementation
-    private void sendEmail() {
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"Recipient"});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Message Body");
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            Log.i("Finished sending...", "");
-        } catch (Exception ex) {
-            //Toast.makeText(InformationFragment.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
-        }
+    private void sendEmailToLinda() {
+        Intent email = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "linda@conciencia.net", null));
+        startActivity(Intent.createChooser(email, "Send mail..."));
     }
 
     private void openWebPage(String uri) {
@@ -90,17 +77,19 @@ public class CasoFragment extends Fragment {
 
     private void updateCaso(boolean succesful) {
         if (succesful) {
-            caso_title_id.setText(casoDelSemana.getTitle() + " : " + casoDelSemana.getDate());
-            caso_date.setText(casoDelSemana.getDate());
-            caso_text.setText(casoDelSemana.getText());
+            caso_title_id.setText(casoDeLaSemana.getTitle() + " : " + casoDeLaSemana.getDate());
+            caso_date.setText(casoDeLaSemana.getDate().toString());
+            caso_text.setText(casoDeLaSemana.getText());
         }
     }
 
     public class UpdateCasoTask extends AsyncTask<Void, Void, Boolean> {
+
         @Override
         protected Boolean doInBackground(Void... params) {
-            casoDelSemana = casoLoader.getCaso();
-            if (casoDelSemana != null)
+            CasoLoader casoLoader = new CasoLoader();
+            casoDeLaSemana = casoLoader.getCaso();
+            if (casoDeLaSemana != null)
                 return true;
             return false;
         }
