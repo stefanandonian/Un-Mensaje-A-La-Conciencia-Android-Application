@@ -5,6 +5,6 @@
     <string name="play_audio">Audio</string>
     <string name="title_activity_information">InformationActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="daily_message">Mensaje</string>
+    <string name="case_of_the_week">Caso</string>
 </resources>

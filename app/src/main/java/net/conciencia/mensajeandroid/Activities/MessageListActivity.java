@@ -2,14 +2,17 @@ package net.conciencia.mensajeandroid.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import net.conciencia.mensajeandroid.Adapters.MensajeCasoAdapter;
 import net.conciencia.mensajeandroid.Constants;
 import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 import net.conciencia.mensajeandroid.Fragments.CasoFragment;
@@ -18,6 +21,9 @@ import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.Fragments.MessageListFragment;
 
 public class MessageListActivity extends AppCompatActivity implements MessageListFragment.MessageListInteraction {
+
+    ViewPager mensaje_caso_pager;
+    TabLayout mensaje_caso_tablayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +34,17 @@ public class MessageListActivity extends AppCompatActivity implements MessageLis
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        FragmentManager fM = getSupportFragmentManager();
-        FragmentTransaction fT = fM.beginTransaction();
-        Fragment messageListFragment = new MessageListFragment();
-        fT.replace(R.id.message_list_fragment_container, messageListFragment);
-        fT.commit();
+        mensaje_caso_pager = (ViewPager)findViewById(R.id.mensaje_caso_pager);
+        mensaje_caso_pager.setAdapter(new MensajeCasoAdapter(getSupportFragmentManager(), this));
+
+        mensaje_caso_tablayout = (TabLayout)findViewById(R.id.mensaje_caso_tablayout);
+        mensaje_caso_tablayout.setupWithViewPager(mensaje_caso_pager);
+
+        //FragmentManager fM = getSupportFragmentManager();
+        //FragmentTransaction fT = fM.beginTransaction();
+        //Fragment messageListFragment = new MessageListFragment();
+        //fT.replace(R.id.message_list_fragment_container, messageListFragment);
+        //fT.commit();
     }
 
 
@@ -74,10 +86,10 @@ public class MessageListActivity extends AppCompatActivity implements MessageLis
             default:
                 break;
         }
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.message_list_fragment_container, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        //transaction.replace(R.id.message_list_fragment_container, fragment);
+        //transaction.addToBackStack(null);
+        //transaction.commit();
         return true;
     }
 }

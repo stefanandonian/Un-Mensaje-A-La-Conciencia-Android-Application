@@ -9,23 +9,12 @@
     android:background="@color/lightGrey"
     android:layout_margin="0dp">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/concienciaBanner_ImageView"
-        android:src="@drawable/un_mensaje_al_conciencia_banner_9"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:scaleType="fitXY" />
-
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/messagelist_SwipeRefreshLayout"
         android:layout_margin="16dp"
-        android:background="@drawable/rectangle_border"
-        android:layout_below="@id/concienciaBanner_ImageView" >
+        android:background="@drawable/rectangle_border" >
 
         <ListView
             android:layout_width="match_parent"

@@ -50,7 +50,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sermon_view);
+        setContentView(R.layout.activity_message_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.sermonview_toolbar);
         setSupportActionBar(toolbar);
 
@@ -136,7 +136,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_sermon, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_message, container, false);
 
             titleTextView = (TextView) rootView.findViewById(R.id.title);
             dateTextView = (TextView) rootView.findViewById(R.id.date);

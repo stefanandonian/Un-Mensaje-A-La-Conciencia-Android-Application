@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import net.conciencia.mensajeandroid.Adapters.SermonListAdapter;
+import net.conciencia.mensajeandroid.Adapters.MessageListAdapter;
 import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.Objects.Message;
@@ -49,7 +49,7 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_sermon_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_message_list, container, false);
 
         mListView = (ListView)view.findViewById(R.id.lv_sermon_list);
 
@@ -100,7 +100,7 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
     public void onRefreshComplete(boolean status){
         fragmentSwipeRefreshLayout.setRefreshing(false);
         isRefreshing = false;
-        mListAdapter = new SermonListAdapter(getContext(), messageLoader.getMessages());
+        mListAdapter = new MessageListAdapter(getContext(), messageLoader.getMessages());
         mListView.setAdapter(mListAdapter);
         mListView.setOnItemClickListener(this);
     }

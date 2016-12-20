@@ -13,26 +13,26 @@ import net.conciencia.mensajeandroid.Objects.Message;
 import java.util.List;
 
 /**
- * Created by smccollum on 04.05.16.
+ *
  */
-public class SermonListAdapter extends ArrayAdapter<Message> {
+public class MessageListAdapter extends ArrayAdapter<Message> {
 
-    public SermonListAdapter(Context context, Message[] messages){
-        super(context, R.layout.sermon_list_item, messages);
+    public MessageListAdapter(Context context, Message[] messages){
+        super(context, R.layout.message_list_item, messages);
     }
-    public SermonListAdapter(Context context, List<Message> messageList){
+    public MessageListAdapter(Context context, List<Message> messageList){
         this(context, makeArray(messageList));
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View sermonItem = layoutInflater.inflate(R.layout.sermon_list_item, parent, false);
+        View sermonItem = layoutInflater.inflate(R.layout.message_list_item, parent, false);
         Message message = getItem(position);
 
-        TextView titleView = (TextView)sermonItem.findViewById(R.id.sermonTitle);
+        TextView titleView = (TextView)sermonItem.findViewById(R.id.messageTitle);
         titleView.setText(message.getTitle());
-        TextView dateView = (TextView)sermonItem.findViewById(R.id.sermonDate);
+        TextView dateView = (TextView)sermonItem.findViewById(R.id.messageDate);
         dateView.setText(message.getPubDate());
 
         return sermonItem;

@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import net.conciencia.mensajeandroid.ContentLoaders.CasoLoader;
-import net.conciencia.mensajeandroid.Objects.CasoDeLaSemana;
+import net.conciencia.mensajeandroid.Objects.Caso;
 import net.conciencia.mensajeandroid.R;
 
 /**
@@ -28,7 +27,7 @@ public class CasoFragment extends Fragment {
     Button emailButton;
     Button internetButton;
 
-    CasoDeLaSemana casoDeLaSemana;
+    Caso caso;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,9 +76,9 @@ public class CasoFragment extends Fragment {
 
     private void updateCaso(boolean succesful) {
         if (succesful) {
-            caso_title_id.setText(casoDeLaSemana.getTitle() + " : " + casoDeLaSemana.getDate());
-            caso_date.setText(casoDeLaSemana.getDate().toString());
-            caso_text.setText(casoDeLaSemana.getText());
+            caso_title_id.setText(caso.getTitle() + " : " + caso.getId());
+            caso_date.setText(caso.getDate().toString());
+            caso_text.setText(caso.getText());
         }
     }
 
@@ -88,8 +87,8 @@ public class CasoFragment extends Fragment {
         @Override
         protected Boolean doInBackground(Void... params) {
             CasoLoader casoLoader = new CasoLoader();
-            casoDeLaSemana = casoLoader.getCaso();
-            if (casoDeLaSemana != null)
+            caso = casoLoader.getCaso();
+            if (caso != null)
                 return true;
             return false;
         }

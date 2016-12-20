@@ -3,7 +3,7 @@ package net.conciencia.mensajeandroid.ContentLoaders;
 import android.text.Html;
 import android.util.Log;
 
-import net.conciencia.mensajeandroid.Objects.CasoDeLaSemana;
+import net.conciencia.mensajeandroid.Objects.Caso;
 
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -19,12 +19,12 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class CasoLoader {
 
-    private CasoDeLaSemana caso;
+    private Caso caso;
     private final String UN_MENSAJE_CASOS_FEED = "http://conciencia.net/api/casos.asmx/get?id=0";
 
     public static void main(String[] args) {
         CasoLoader casoLoader = new CasoLoader();
-        CasoDeLaSemana caso = casoLoader.getCaso();
+        Caso caso = casoLoader.getCaso();
         caso.print();
     }
 
@@ -51,10 +51,10 @@ public class CasoLoader {
         Date date    = formatDate(xmlElement.getElementsByTagName("date").item(0).getFirstChild().getNodeValue());
         String title = xmlElement.getElementsByTagName("title").item(0).getFirstChild().getNodeValue();
         String topic = xmlElement.getElementsByTagName("topic").item(0).getFirstChild().getNodeValue();
-        caso = new CasoDeLaSemana(id, date, title, text, topic);
+        caso = new Caso(id, date, title, text, topic);
     }
 
-    public CasoDeLaSemana getCaso() {
+    public Caso getCaso() {
         return caso;
     }
 

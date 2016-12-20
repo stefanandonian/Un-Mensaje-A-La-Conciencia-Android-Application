@@ -28,12 +28,31 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/concienciaBanner_ImageView"
+        android:src="@drawable/un_mensaje_al_conciencia_banner_9"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:scaleType="fitXY" />
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mensaje_caso_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        >
 
-        android:id="@+id/message_list_fragment_container">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/mensaje_caso_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tabMode="fixed" >
 
-    </FrameLayout>
+        </android.support.design.widget.TabLayout>
+
+    </android.support.v4.view.ViewPager>
 
 </android.support.design.widget.CoordinatorLayout>

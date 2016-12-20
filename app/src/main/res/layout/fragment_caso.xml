@@ -11,43 +11,66 @@
         android:layout_height="0dp"
         android:text="Caso de la Semana : 405"
         android:textSize="30dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="14dp" />
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp" />
 
     <TextView
         android:id="@+id/caso_date"
-        android:layout_width="0dp"
-        android:layout_height="61dp"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
         android:text="March 28th, 1994"
         android:textSize="24dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/caso_title_id" />
+        app:layout_constraintTop_toBottomOf="@+id/caso_title_id"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp" />
 
     <ScrollView
         android:id="@+id/caso_text_scrollview"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="0dp"
         android:textSize="14dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintTop_toBottomOf="@+id/caso_date"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.13"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp">
+
+        <TextView
+            android:id="@+id/caso_text"
+            android:text="To create a custom Behavior It isn't as difficult as it may seem, to begin we must take into account two core elements: child and dependency."
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </ScrollView>
-
-    <TextView
-        android:id="@+id/caso_text"
-        android:text="To create a custom Behavior It isn't as difficult as it may seem, to begin we must take into account two core elements: child and dependency."
-        android:layout_width="376dp"
-        android:layout_height="397dp"
-        tools:layout_editor_absoluteY="111dp"
-        tools:layout_editor_absoluteX="8dp" />
 
     <LinearLayout
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="512dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/linearLayout">
 
         <Button
             android:id="@+id/caso_internet_button"
