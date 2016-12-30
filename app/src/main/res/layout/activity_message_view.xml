@@ -7,7 +7,7 @@
                                                  android:layout_height="match_parent"
                                                  android:fitsSystemWindows="true"
                                                  android:theme="@style/AppTheme.NoActionBar"
-                                                 tools:context=".Activities.SermonViewActivity">
+                                                 tools:context=".Activities.MessageViewActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/sermonView_appbar"

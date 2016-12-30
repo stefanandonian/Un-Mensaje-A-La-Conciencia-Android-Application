@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Un Mensaje A La Conciencia</string>
     <string name="action_settings">Settings</string>
+
     <string name="play_video">Video</string>
     <string name="play_audio">Audio</string>
     <string name="title_activity_information">InformationActivity</string>
 
     <string name="daily_message">Mensaje</string>
     <string name="case_of_the_week">Caso</string>
+    <string name="information">Info</string>
+
+    <string name="RSS_EXTRA">rss_extra</string>
+    <string name="MESSAGE_INDEX">sermon_index</string>
 </resources>

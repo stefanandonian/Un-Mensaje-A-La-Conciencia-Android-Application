@@ -1,58 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout android:id="@+id/main_content"
+<RelativeLayout android:id="@+id/main_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:theme="@style/AppTheme.NoActionBar"
-    tools:context=".Activities.SermonViewActivity">
+    tools:context=".Activities.MessageViewActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/main_toolbar"
+    <!--
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/messagelist_appbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-        </android.support.v7.widget.Toolbar>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/messagelist_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+            </android.support.v7.widget.Toolbar>
 
+        </android.support.design.widget.AppBarLayout>
+    -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:id="@+id/concienciaBanner_ImageView"
         android:src="@drawable/un_mensaje_al_conciencia_banner_9"
-        android:layout_marginTop="?attr/actionBarSize"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
         android:scaleType="fitXY" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/mensaje_caso_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/concienciaBanner_ImageView"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        android:backgroundTint="@color/colorPrimary">
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/mensaje_tabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/daily_message" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/caso_tabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/case_of_the_week" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/information_tabItem"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/information"/>
+
+    </android.support.design.widget.TabLayout>
     
     <android.support.v4.view.ViewPager
         android:id="@+id/mensaje_caso_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        >
+        android:layout_below="@id/mensaje_caso_tablayout"/>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/mensaje_caso_tablayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:tabMode="fixed" >
-
-        </android.support.design.widget.TabLayout>
-
-    </android.support.v4.view.ViewPager>
-
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

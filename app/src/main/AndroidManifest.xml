@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.SermonViewActivity"
+            android:name=".Activities.MessageViewActivity"
             android:parentActivityName=".Activities.MessageListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

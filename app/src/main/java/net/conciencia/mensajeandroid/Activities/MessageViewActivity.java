@@ -19,13 +19,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.conciencia.mensajeandroid.Constants;
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.ContentLoaders.RSSClient;
 import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 import net.conciencia.mensajeandroid.Objects.Message;
 
-public class SermonViewActivity extends AppCompatActivity implements RSSClient {
+public class MessageViewActivity extends AppCompatActivity implements RSSClient {
     MessageLoader messageLoader;
 
     public MessageLoader getMessageLoader(){
@@ -58,7 +57,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle args = getIntent().getExtras();
-        messageLoader = args.getParcelable(Constants.RSS_EXTRA);
+        messageLoader = args.getParcelable(getString(R.string.RSS_EXTRA));
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -67,7 +66,7 @@ public class SermonViewActivity extends AppCompatActivity implements RSSClient {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setCurrentItem(args.getInt(Constants.SERMON_INDEX));
+        mViewPager.setCurrentItem(args.getInt(getString(R.string.MESSAGE_INDEX)));
         mSectionsPagerAdapter.notifyDataSetChanged();
     }
 
