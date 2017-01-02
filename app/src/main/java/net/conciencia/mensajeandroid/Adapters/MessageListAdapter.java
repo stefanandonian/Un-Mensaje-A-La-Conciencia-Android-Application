@@ -18,7 +18,7 @@ import java.util.List;
 public class MessageListAdapter extends ArrayAdapter<Message> {
 
     public MessageListAdapter(Context context, Message[] messages){
-        super(context, R.layout.message_list_item, messages);
+        super(context, R.layout.list_item_message, messages);
     }
     public MessageListAdapter(Context context, List<Message> messageList){
         this(context, makeArray(messageList));
@@ -27,7 +27,7 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View sermonItem = layoutInflater.inflate(R.layout.message_list_item, parent, false);
+        View sermonItem = layoutInflater.inflate(R.layout.list_item_message, parent, false);
         Message message = getItem(position);
 
         TextView titleView = (TextView)sermonItem.findViewById(R.id.messageTitle);

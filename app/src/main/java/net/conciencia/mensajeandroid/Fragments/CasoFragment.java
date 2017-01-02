@@ -36,7 +36,7 @@ public class CasoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState) {
-        View casoView = layoutInflater.inflate(R.layout.fragment_caso, container, false);
+        View casoView = layoutInflater.inflate(R.layout.tab_fragment_caso, container, false);
 
         caso_title_id = (TextView) casoView.findViewById(R.id.caso_title_id);
         caso_date = (TextView) casoView.findViewById(R.id.caso_date);

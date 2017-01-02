@@ -27,9 +27,9 @@ public class InformationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View informationView = inflater.inflate(R.layout.fragment_information, container, false);
+        View informationView = inflater.inflate(R.layout.tab_fragment_information, container, false);
 
-        emailButton = (Button) informationView.findViewById(R.id.concienciaEmailButton);
+        emailButton = (Button) informationView.findViewById(R.id.info_conciencia_email_button);
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +37,7 @@ public class InformationFragment extends Fragment {
             }
         });
 
-        facebookButton = (Button) informationView.findViewById(R.id.facebookButton);
+        facebookButton = (Button) informationView.findViewById(R.id.info_facebook_button);
         facebookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +45,7 @@ public class InformationFragment extends Fragment {
             }
         });
 
-        internet_message_button = (Button) informationView.findViewById(R.id.concienciaWebPage);
+        internet_message_button = (Button) informationView.findViewById(R.id.info_conciencia_webpage_button);
         internet_message_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

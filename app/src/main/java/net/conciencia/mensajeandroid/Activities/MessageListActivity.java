@@ -35,8 +35,8 @@ public class MessageListActivity extends AppCompatActivity implements MessageLis
         //Toast.makeText(this, String.format("Message %s (%s) selected", sermon.getTitle(), sermon.getPubDate()), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MessageListActivity.this, MessageViewActivity.class);
         Bundle extras = new Bundle();
-        extras.putParcelable(getString(R.string.RSS_EXTRA), messageLoader);
-        extras.putInt(getString(R.string.MESSAGE_INDEX), sermonIndex);
+        extras.putParcelable(getString(R.string.rss_extra), messageLoader);
+        extras.putInt(getString(R.string.message_index), sermonIndex);
         intent.putExtras(extras);
         startActivity(intent);
     }

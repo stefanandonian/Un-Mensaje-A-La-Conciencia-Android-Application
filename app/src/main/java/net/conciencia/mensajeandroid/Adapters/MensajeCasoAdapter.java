@@ -27,10 +27,10 @@ public class MensajeCasoAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            //case 0 : return new MessageListFragment();
-            case 0 : return new InformationFragment();
-            //case 1 : return new CasoFragment();
-            case 1 : return new InformationFragment();
+            case 0 : return new MessageListFragment();
+            //case 0 : return new InformationFragment();
+            case 1 : return new CasoFragment();
+            //case 1 : return new InformationFragment();
             case 2 : return new InformationFragment();
             default:
                 return null;

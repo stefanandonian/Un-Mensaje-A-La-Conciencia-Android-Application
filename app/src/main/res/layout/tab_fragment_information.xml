@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_border"
+        android:layout_margin="@dimen/rectangle_border_margin" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/infoTitle"
+            android:text="@string/app_name"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/info_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/infoStreetAddress"
+            android:text="Costa Mesa, CA 92628"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginTop="@dimen/info_margin"
+            android:layout_below="@+id/infoTitle"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_PObox"
+            android:text="Box 100"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginTop="@dimen/info_margin"
+            android:layout_below="@+id/infoStreetAddress"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_telephone"
+            android:text="Tel: 949.645.0676"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginTop="@dimen/info_margin"
+            android:layout_below="@+id/info_PObox"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_fax"
+            android:text="Fax: 949.645.0374"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_below="@+id/info_telephone"
+            android:layout_marginTop="@dimen/info_margin"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_facebook_button"
+            android:text="Facebook"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
+            android:layout_above="@+id/info_conciencia_email_button"
+            android:layout_marginBottom="@dimen/info_margin"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_conciencia_email_button"
+            android:text="info@conciencia.net"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
+            android:layout_above="@+id/info_conciencia_webpage_button"
+            android:layout_marginBottom="@dimen/info_margin" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_conciencia_webpage_button"
+            android:text="http://www.conciencia.net/"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
+            android:layout_above="@+id/info_disclaimer"
+            android:layout_marginBottom="@dimen/info_margin"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_disclaimer"
+            android:text="Esta aplicacion se brinda como un servicio sin garantias expresas y depende dela disponibilidad de Internet. La misma ha sido desarrollada por Logica Digital.Sus comentarios son bienvenidos en apple@logicadigital.net"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/info_margin" />
+
+    </RelativeLayout>
+
+</LinearLayout>

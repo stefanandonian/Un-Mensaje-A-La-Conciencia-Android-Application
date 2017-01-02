@@ -57,7 +57,7 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle args = getIntent().getExtras();
-        messageLoader = args.getParcelable(getString(R.string.RSS_EXTRA));
+        messageLoader = args.getParcelable(getString(R.string.rss_extra));
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -66,7 +66,7 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setCurrentItem(args.getInt(getString(R.string.MESSAGE_INDEX)));
+        mViewPager.setCurrentItem(args.getInt(getString(R.string.message_index)));
         mSectionsPagerAdapter.notifyDataSetChanged();
     }
 
@@ -135,7 +135,7 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_message, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_message_view, container, false);
 
             titleTextView = (TextView) rootView.findViewById(R.id.title);
             dateTextView = (TextView) rootView.findViewById(R.id.date);

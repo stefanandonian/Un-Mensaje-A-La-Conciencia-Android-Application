@@ -49,7 +49,7 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_message_list, container, false);
+        View view = inflater.inflate(R.layout.tab_fragment_message_list, container, false);
 
         mListView = (ListView)view.findViewById(R.id.lv_sermon_list);
 

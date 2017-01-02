@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     tools:context=".Fragments.MessageListFragment"
     android:id="@+id/sermon_list_fragment"
-    android:background="@color/lightGrey"
+    android:background="@color/colorPrimary"
     android:layout_margin="0dp">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/messagelist_SwipeRefreshLayout"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/rectangle_border_margin"
         android:background="@drawable/rectangle_border" >
 
         <ListView

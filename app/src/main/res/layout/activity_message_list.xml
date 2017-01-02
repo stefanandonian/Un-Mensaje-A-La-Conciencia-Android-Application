@@ -44,7 +44,7 @@
         android:layout_below="@id/concienciaBanner_ImageView"
         app:tabMode="fixed"
         app:tabGravity="fill"
-        android:backgroundTint="@color/colorPrimary">
+        style="@style/CustomTabLayoutStyle" >
 
         <android.support.design.widget.TabItem
             android:id="@+id/mensaje_tabItem"
