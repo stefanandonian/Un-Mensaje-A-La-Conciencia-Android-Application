@@ -25,7 +25,6 @@ public class Message implements Parcelable {
         this.audioURL    = audioURL;
         this.videoURL    = videoURL;
         this.duration    = duration;
-        System.out.println(this);
     }
 
     public Message(Parcel source) {
@@ -121,17 +120,5 @@ public class Message implements Parcelable {
             return new Message[size];
         }
     };
-
-    /*public void println() {
-        System.out.println("Title       = " + title);
-        System.out.println("Link        = " + link);
-        System.out.println("Guid        = " + guid);
-        System.out.println("PubDate     = " + pubDate);
-        System.out.println("Author      = " + author);
-        System.out.println("Description = " + description);
-        System.out.println("Audio Link  = " + audioURL);
-        System.out.println("Video Link  = " + videoURL);
-        System.out.println("Duration    = " + duration);
-    }//*/
 }
 

@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import net.conciencia.mensajeandroid.ContentLoaders.CasoLoader;
@@ -19,13 +20,12 @@ import net.conciencia.mensajeandroid.R;
  * Created by stefanandonian on 12/12/16.
  */
 
-public class CasoFragment extends Fragment {
+public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     TextView caso_title_id;
     TextView caso_date;
     TextView caso_text;
-    Button emailButton;
-    Button internetButton;
+    FloatingActionButton send_email_to_Linda_fab;
 
     Caso caso;
 
@@ -37,29 +37,19 @@ public class CasoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState) {
         View casoView = layoutInflater.inflate(R.layout.tab_fragment_caso, container, false);
-
         caso_title_id = (TextView) casoView.findViewById(R.id.caso_title_id);
         caso_date = (TextView) casoView.findViewById(R.id.caso_date);
         caso_text = (TextView) casoView.findViewById(R.id.caso_text);
 
-        emailButton = (Button) casoView.findViewById(R.id.caso_email_button);
-        emailButton.setOnClickListener(new View.OnClickListener() {
+        send_email_to_Linda_fab = (FloatingActionButton) casoView.findViewById(R.id.caso_send_email_to_Linda_fab);
+        send_email_to_Linda_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendEmailToLinda();
             }
         });
-        internetButton = (Button) casoView.findViewById(R.id.caso_internet_button);
-        internetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openWebPage("http://www.message2conscience.com/cases.aspx");
-            }
-        });
-
         UpdateCasoTask updateCasoTask = new UpdateCasoTask();
         updateCasoTask.execute();
-
         return casoView;
     }
 
@@ -69,11 +59,6 @@ public class CasoFragment extends Fragment {
         startActivity(Intent.createChooser(email, "Send mail..."));
     }
 
-    private void openWebPage(String uri) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        startActivity(browserIntent);
-    }
-
     private void updateCaso(boolean succesful) {
         if (succesful) {
             caso_title_id.setText(caso.getTitle() + " : " + caso.getId());
@@ -81,6 +66,13 @@ public class CasoFragment extends Fragment {
             caso_text.setText(caso.getText());
         }
     }
+
+    @Override
+    public void onRefresh() {
+        UpdateCasoTask updateCaso = new UpdateCasoTask();
+        updateCaso.execute();
+    }
+
 
     public class UpdateCasoTask extends AsyncTask<Void, Void, Boolean> {
 

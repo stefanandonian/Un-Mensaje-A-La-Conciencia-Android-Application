@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:id="@+id/messagelist_SwipeRefreshLayout"
         android:layout_margin="@dimen/rectangle_border_margin"
-        android:background="@drawable/rectangle_border" >
+        android:background="@drawable/rectangle_border_color_accent" >
 
         <ListView
             android:layout_width="match_parent"

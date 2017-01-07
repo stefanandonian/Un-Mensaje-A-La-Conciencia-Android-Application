@@ -9,7 +9,7 @@
         android:icon="@drawable/unmensajeicon"
         android:label="Mensajes"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.Base">
         <activity android:name=".Activities.MessageListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
         <activity
             android:name=".Activities.MessageViewActivity"
             android:parentActivityName=".Activities.MessageListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.Base.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

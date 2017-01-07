@@ -34,22 +34,8 @@ public class MessageLoader implements Parcelable {
         messages = new ArrayList<Message>();
     }
 
-    public static void main(String[] args) {
-        MessageLoader umr = new MessageLoader();
-        System.out.println("Retrieving information from web..." + (umr.loadMessagesFromWeb() ? "Successful" : "Failed!"));
-        System.out.println("Printing Items...");
-        System.out.println(umr.getMessages());
-        System.out.println("Finished Printing Items...");
-    }
-
-    /**
-     * Load the messages from the site so that they can be accessed
-     * @return
-     */
     public boolean loadMessagesFromWeb(){
-        long startTime = System.currentTimeMillis();
         NodeList feed = getNodeListFromXML();
-        System.out.printf("Duration: %fs\n", (double)((System.currentTimeMillis()-startTime)));
         if(feed == null)
             return false;
         messages = getArrayMessageArrayListFromDocument(feed);
@@ -61,7 +47,8 @@ public class MessageLoader implements Parcelable {
         return messages.get(sermonIndex-1);
     }
 
-    // w3c.dom tool returns an itemized version of Un Mensaje's RSS Feed for Messages in an object called a NodeList from the w3c.dom library
+    // w3c.dom tool returns an itemized version of Un Mensaje's RSS Feed for
+    // Messages in an object called a NodeList from the w3c.dom library
     public NodeList getNodeListFromXML() {
         try
         {

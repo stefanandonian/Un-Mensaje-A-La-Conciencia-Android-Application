@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/menu_icon"
-        android:icon="@drawable/concienciaicon"
+        android:background="@drawable/conciencia_fab_icon"
         android:title="THIS TEXT SHOULD NOT BE VISIBLE" />
 
 </menu>

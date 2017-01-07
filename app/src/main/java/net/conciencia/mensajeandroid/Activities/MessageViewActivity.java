@@ -2,8 +2,11 @@ package net.conciencia.mensajeandroid.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.ContentLoaders.RSSClient;
@@ -50,8 +52,15 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.sermonview_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.message_view_toolbar);
+        toolbar.setTitle("Mensajes");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorAccent));
         setSupportActionBar(toolbar);
+
+
+        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
+        upArrow.setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
         if(getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -73,15 +82,13 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class SermonViewFragment extends Fragment {
+    public static class MessageViewFragment extends Fragment {
         RSSClient webClient;
         int sermonIndex;
         TextView titleTextView;
         TextView dateTextView;
-        Button videoButton;
-        Button audioButton;
-        Button emailButton;
-        Button internetButton;
+        FloatingActionButton video_fab;
+        FloatingActionButton audio_fab;
         TextView message_contentsTextView;
 
         /**
@@ -90,7 +97,7 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
          */
         private static final String ARG_SERMON_INDEX = "section_number";
 
-        public SermonViewFragment() {
+        public MessageViewFragment() {
         }
 
         @Override
@@ -125,8 +132,8 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static SermonViewFragment newInstance(int sermonIndex) {
-            SermonViewFragment fragment = new SermonViewFragment();
+        public static MessageViewFragment newInstance(int sermonIndex) {
+            MessageViewFragment fragment = new MessageViewFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SERMON_INDEX, sermonIndex);
             fragment.setArguments(args);
@@ -141,22 +148,25 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
             dateTextView = (TextView) rootView.findViewById(R.id.date);
             message_contentsTextView = (TextView) rootView.findViewById(R.id.message_content);
 
-            audioButton = (Button) rootView.findViewById(R.id.button_audio);
-            audioButton.setOnClickListener(new View.OnClickListener() {
+            audio_fab = (FloatingActionButton) rootView.findViewById(R.id.message_view_audio_fab);
+            audio_fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     playAudio();
                 }
             });
-            audioButton.setEnabled(true);
-            videoButton = (Button) rootView.findViewById(R.id.button_video);
-            videoButton.setOnClickListener(new View.OnClickListener() {
+            audio_fab.setEnabled(true);
+
+            video_fab = (FloatingActionButton) rootView.findViewById(R.id.message_view_video_fab);
+            video_fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     playVideo();
                 }
             });
-            videoButton.setEnabled(true);
+            video_fab.setEnabled(true);
+
+            /*
             emailButton = (Button) rootView.findViewById(R.id.emailButton);
             emailButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -173,26 +183,9 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
                     }
                 }
             });
-            internetButton = (Button) rootView.findViewById(R.id.internetButton);
-            internetButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
-                        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.message2conscience.com/cases.aspx"));
-                        startActivity(myIntent);
-                    } catch (Exception e) {
-                        Toast.makeText(getContext(), "No application can handle this request."
-                                + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
-                        e.printStackTrace();
-                    }
-                }
-            });
+            */
             sermonIndex = getArguments().getInt(ARG_SERMON_INDEX);
             displaySermon();
-
-            //titleTextView.setText(getString(R.string.titleResource, getArguments().getInt(ARG_SERMON_INDEX)));
-            //dateTextView.setText(getString(R.string.dateResource, getArguments().getInt(ARG_SERMON_INDEX)));
-            //message_contentsTextView.setText(getString(R.string.contentResource, getArguments().getInt(ARG_SERMON_INDEX)));
             return rootView;
         }
 
@@ -207,7 +200,6 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
             playMedia(webClient.getMessageLoader().getSermon(sermonIndex).getVideoURL());
         }
         private void playMedia(String url){
-            //Toast.makeText(getActivity(), url, Toast.LENGTH_LONG).show();
             Log.d("net.conciencia", "URL: " + url);
             getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         }
@@ -225,22 +217,20 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a SermonViewFragment (defined as a static inner class below).
-            return SermonViewFragment.newInstance(position + 1);
+            return MessageViewFragment.newInstance(position + 1);
         }
 
         @Override
         public int getCount() {
             // Show 7 total pages.
-            if(messageLoader != null)
+            if (messageLoader != null)
                 return messageLoader.getMessages().size();
             return 1;
         }
 
         @Override
         public int getItemPosition(Object object) {
-            if(object instanceof Message) {
+            if (object instanceof Message) {
                 return messageLoader.getSermonIndex((Message) object);
             }
             return 1;
@@ -248,14 +238,9 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
 
         @Override
         public CharSequence getPageTitle(int position) {
-            if(true)
+            if (true)
                 throw new NullPointerException();
             return super.getPageTitle(position);
         }
-/*@Override
-        public CharSequence getPageTitle(int position) {
-            Log.d("net.conciencia.mensaje", "Title: " + messageLoader.getSermon(position).getTitle());
-            return (CharSequence)messageLoader.getSermon(position-1).getTitle();
-        }//*/
     }
 }

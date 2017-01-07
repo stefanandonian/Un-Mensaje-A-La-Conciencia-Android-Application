@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary" >
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/caso_swipe_refresh_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/rectangle_border_margin"
+        android:background="@drawable/rectangle_border_color_accent" >
 
     <ScrollView
         android:id="@+id/caso_text_scrollview"
@@ -12,9 +20,7 @@
         android:layout_above="@+id/caso_button_bar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/rectangle_border_margin"
-        android:background="@drawable/rectangle_border" >
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,28 +53,17 @@
 
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/caso_button_bar"
-        android:layout_width="match_parent"
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/caso_send_email_to_Linda_fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <Button
-            android:id="@+id/caso_internet_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Web"
-            android:layout_marginRight="40dp"/>
-
-        <Button
-            android:id="@+id/caso_email_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email" />
-    </LinearLayout>
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        app:backgroundTint="@color/colorPrimaryDark"/>
 
 </RelativeLayout>
