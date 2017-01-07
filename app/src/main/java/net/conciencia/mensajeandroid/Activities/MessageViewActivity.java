@@ -87,9 +87,11 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
         int sermonIndex;
         TextView titleTextView;
         TextView dateTextView;
+        TextView message_contentsTextView;
+
         FloatingActionButton video_fab;
         FloatingActionButton audio_fab;
-        TextView message_contentsTextView;
+        FloatingActionButton send_mensaje_in_email_to_friend_fab;
 
         /**
          * The fragment argument representing the section number for this
@@ -166,24 +168,15 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
             });
             video_fab.setEnabled(true);
 
-            /*
-            emailButton = (Button) rootView.findViewById(R.id.emailButton);
-            emailButton.setOnClickListener(new View.OnClickListener() {
+
+            send_mensaje_in_email_to_friend_fab = (FloatingActionButton) rootView.findViewById(R.id.message_view_email_fab);
+            send_mensaje_in_email_to_friend_fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(Intent.ACTION_SEND);
-                    i.setType("message/rfc822");
-                    i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-                    i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-                    i.putExtra(Intent.EXTRA_TEXT   , "body of email");
-                    try {
-                        startActivity(Intent.createChooser(i, "Send mail..."));
-                    } catch (android.content.ActivityNotFoundException ex) {
-                        Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                    }
+                    sendMensajeInEmailToFriend();
                 }
             });
-            */
+
             sermonIndex = getArguments().getInt(ARG_SERMON_INDEX);
             displaySermon();
             return rootView;
@@ -202,6 +195,18 @@ public class MessageViewActivity extends AppCompatActivity implements RSSClient 
         private void playMedia(String url){
             Log.d("net.conciencia", "URL: " + url);
             getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        }
+
+        private void sendMensajeInEmailToFriend(){
+            Intent emailToFriend = new Intent(Intent.ACTION_SEND);
+            emailToFriend.setData(Uri.parse("mailto:"));
+
+            emailToFriend.putExtra(Intent.EXTRA_SUBJECT, webClient.getMessageLoader().getSermon(sermonIndex).getTitle());
+            emailToFriend.setType("message/rfc822");
+            emailToFriend.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(webClient.getMessageLoader().getSermon(sermonIndex).getText()));
+
+            Intent chooser = Intent.createChooser(emailToFriend, "Enviar por Correo");
+            startActivity(chooser);
         }
     }
 

@@ -5,11 +5,9 @@ import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import net.conciencia.mensajeandroid.R;
 
@@ -34,7 +32,7 @@ public class InformationFragment extends Fragment {
         send_email_to_Info_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendEmail();
+                sendEmailToConcienciaDotNet();
             }
         });
 
@@ -57,19 +55,12 @@ public class InformationFragment extends Fragment {
     }
 
     // Needs more implementation
-    private void sendEmail() {
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"Recipient"});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Message Body");
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            Log.i("Finished sending...", "");
-        } catch (Exception ex) {
-            //Toast.makeText(InformationFragment.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
-        }
+    private void sendEmailToConcienciaDotNet() {
+        Intent emailConcienciaHoy = new Intent(Intent.ACTION_SEND);
+        emailConcienciaHoy.setData(Uri.parse("mailto:"));
+        emailConcienciaHoy.putExtra(Intent.EXTRA_EMAIL, new String[]{"info@conciencia.net"});
+        emailConcienciaHoy.setType("message/rfc822");
+        startActivity(Intent.createChooser(emailConcienciaHoy, "Enviar Por Correo"));
     }
 
     private void openWebPage(String uri) {

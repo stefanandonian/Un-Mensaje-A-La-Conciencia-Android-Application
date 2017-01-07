@@ -25,7 +25,7 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     TextView caso_title_id;
     TextView caso_date;
     TextView caso_text;
-    FloatingActionButton send_email_to_Linda_fab;
+    FloatingActionButton send_caso_in_email_to_friend_fab;
 
     Caso caso;
 
@@ -41,11 +41,11 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         caso_date = (TextView) casoView.findViewById(R.id.caso_date);
         caso_text = (TextView) casoView.findViewById(R.id.caso_text);
 
-        send_email_to_Linda_fab = (FloatingActionButton) casoView.findViewById(R.id.caso_send_email_to_Linda_fab);
-        send_email_to_Linda_fab.setOnClickListener(new View.OnClickListener() {
+        send_caso_in_email_to_friend_fab = (FloatingActionButton) casoView.findViewById(R.id.caso_send_caso_in_email_to_friend_fab);
+        send_caso_in_email_to_friend_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendEmailToLinda();
+                sendCasoInEmailToFriend();
             }
         });
         UpdateCasoTask updateCasoTask = new UpdateCasoTask();
@@ -54,9 +54,16 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     // Needs more implementation
-    private void sendEmailToLinda() {
-        Intent email = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "linda@conciencia.net", null));
-        startActivity(Intent.createChooser(email, "Send mail..."));
+    private void sendCasoInEmailToFriend() {
+        Intent emailToFriend = new Intent(Intent.ACTION_SEND);
+        emailToFriend.setData(Uri.parse("mailto:"));
+
+        emailToFriend.putExtra(Intent.EXTRA_SUBJECT, caso.getTitle() + " : " + caso.getDate());
+        emailToFriend.setType("message/rfc822");
+        emailToFriend.putExtra(Intent.EXTRA_TEXT, caso.getText());
+
+        Intent chooser = Intent.createChooser(emailToFriend, "Send Email");
+        startActivity(chooser);
     }
 
     private void updateCaso(boolean succesful) {
