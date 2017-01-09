@@ -10,7 +10,7 @@
         android:id="@+id/message_view_scroll_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/message_view_audio_fab"
         android:background="@drawable/rectangle_border_color_accent"
         android:layout_margin="@dimen/rectangle_border_margin" >
 
@@ -70,7 +70,7 @@
         android:layout_marginRight="8dp"
         android:clickable="true"
         app:srcCompat="@android:drawable/presence_video_online"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/colorPrimaryDark"
         />
 
     <android.support.design.widget.FloatingActionButton

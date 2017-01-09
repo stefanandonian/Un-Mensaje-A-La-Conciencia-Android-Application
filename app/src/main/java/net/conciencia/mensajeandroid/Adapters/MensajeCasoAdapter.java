@@ -47,7 +47,7 @@ public class MensajeCasoAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0 : return context.getString(R.string.daily_message);
             case 1 : return context.getString(R.string.case_of_the_week);
-            case 2 : return context.getString(R.string.information);
+            case 2 : return context.getString(R.string.information_tab_title);
             default:
                 return null;
         }

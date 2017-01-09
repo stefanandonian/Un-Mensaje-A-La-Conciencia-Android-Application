@@ -8,26 +8,6 @@
     android:fitsSystemWindows="true"
     tools:context=".Activities.MessageViewActivity">
 
-    <!--
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/messagelist_appbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:theme="@style/AppTheme.AppBarOverlay">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/messagelist_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/AppTheme.PopupOverlay">
-
-            </android.support.v7.widget.Toolbar>
-
-        </android.support.design.widget.AppBarLayout>
-    -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -62,7 +42,7 @@
             android:id="@+id/information_tabItem"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/information"/>
+            android:text="@string/information_tab_title"/>
 
     </android.support.design.widget.TabLayout>
     

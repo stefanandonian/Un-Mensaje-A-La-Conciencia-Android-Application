@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/rectangle_border_margin"
+        android:layout_above="@+id/caso_send_caso_in_email_to_friend_fab"
         android:background="@drawable/rectangle_border_color_accent" >
 
     <ScrollView
