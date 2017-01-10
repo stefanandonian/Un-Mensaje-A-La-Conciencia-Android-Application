@@ -12,9 +12,6 @@ import net.conciencia.mensajeandroid.Objects.Message;
 
 import java.util.List;
 
-/**
- *
- */
 public class MessageListAdapter extends ArrayAdapter<Message> {
 
     public MessageListAdapter(Context context, Message[] messages){
@@ -27,15 +24,17 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View sermonItem = layoutInflater.inflate(R.layout.list_item_message, parent, false);
         Message message = getItem(position);
+        View sermonItem = layoutInflater.inflate(R.layout.list_item_message, parent, false);
+        setVisualElements(message, sermonItem);
+        return sermonItem;
+    }
 
+    private void setVisualElements(Message message, View sermonItem) {
         TextView titleView = (TextView)sermonItem.findViewById(R.id.messageTitle);
         titleView.setText(message.getTitle());
         TextView dateView = (TextView)sermonItem.findViewById(R.id.messageDate);
         dateView.setText(message.getPubDate());
-
-        return sermonItem;
     }
 
     private static Message[] makeArray(List<Message> messageList){

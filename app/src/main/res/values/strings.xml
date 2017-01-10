@@ -11,10 +11,16 @@
 
     <string name="rss_extra">rss_extra</string>
     <string name="message_index">sermon_index</string>
+    <string name="arg_sermon_index">section_number</string>
 
     <string name="information_street_address">Costa Mesa, CA 92628</string>
     <string name="information_po_box">Box 100</string>
     <string name="information_telephone">Tel: 949.645.0676</string>
     <string name="information_fax">Fax: 949.645.0374</string>
     <string name="information_disclaimer">Esta aplicacion se brinda como un servicio sin garantias expresas y depende dela disponibilidad de Internet. La misma ha sido desarrollada por Logica Digital.Sus comentarios son bienvenidos en apple@logicadigital.net</string>
+
+    <string name="debug_TAG">DEBUG</string>
+    <string name="un_mensaje_rss_feed">http://conciencia.net/rss.aspx</string>
+
+    <string name="send_email_toast_message">Enviar por Correo</string>
 </resources>

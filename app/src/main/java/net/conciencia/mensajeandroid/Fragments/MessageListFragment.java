@@ -15,7 +15,6 @@ import android.widget.ListView;
 import net.conciencia.mensajeandroid.Adapters.MessageListAdapter;
 import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 import net.conciencia.mensajeandroid.R;
-import net.conciencia.mensajeandroid.Objects.Message;
 
 /**
  * A fragment representing a list of Items.
@@ -43,21 +42,21 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        messageLoader = new MessageLoader();
+        messageLoader = new MessageLoader(getContext());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_fragment_message_list, container, false);
-
-        mListView = (ListView)view.findViewById(R.id.lv_sermon_list);
-
-        fragmentSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.messagelist_SwipeRefreshLayout);
-        fragmentSwipeRefreshLayout.setOnRefreshListener(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.tab_fragment_message_list, container, false);
+        mListView = (ListView)rootView.findViewById(R.id.lv_sermon_list);
+        setOnRefreshLayout(rootView);
         onRefresh();
+        return rootView;
+    }
 
-        return view;
+    private void setOnRefreshLayout(View rootView) {
+        fragmentSwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.messagelist_SwipeRefreshLayout);
+        fragmentSwipeRefreshLayout.setOnRefreshListener(this);
     }
 
     @Override
@@ -85,8 +84,7 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Message chosenMessage = (Message)parent.getAdapter().getItem(position);
-        mListener.onSermonSelected(messageLoader, /*chosenMessage*/ position);
+        mListener.onSermonSelected(messageLoader, position);
     }
 
     @Override
@@ -97,10 +95,10 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
         refreshSermons.execute();
     }
 
-    public void onRefreshComplete(boolean status){
+    public void onRefreshComplete(){
         fragmentSwipeRefreshLayout.setRefreshing(false);
         isRefreshing = false;
-        mListAdapter = new MessageListAdapter(getContext(), messageLoader.getMessages());
+        mListAdapter = new MessageListAdapter(getContext(), messageLoader.getParcelable_messages());
         mListView.setAdapter(mListAdapter);
         mListView.setOnItemClickListener(this);
     }
@@ -122,13 +120,13 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
     public class UpdateMessageTask extends AsyncTask<Void, Void, Boolean>{
         @Override
         protected Boolean doInBackground(Void... params) {
-            return messageLoader.loadMessagesFromWeb();
+            return messageLoader.loadMessagesFromUnMensajeALaConcienciaRssFeed();
         }
 
         @Override
         protected void onPostExecute(Boolean successful) {
             super.onPostExecute(successful);
-            onRefreshComplete(successful);
+            onRefreshComplete();
         }
     }
 }

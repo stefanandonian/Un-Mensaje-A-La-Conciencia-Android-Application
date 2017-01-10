@@ -5,15 +5,12 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import net.conciencia.mensajeandroid.Fragments.CasoFragment;
 import net.conciencia.mensajeandroid.Fragments.InformationFragment;
 import net.conciencia.mensajeandroid.Fragments.MessageListFragment;
 import net.conciencia.mensajeandroid.R;
-
-/**
- * Created by stefanandonian on 12/19/16.
- */
 
 public class MensajeCasoAdapter extends FragmentPagerAdapter {
 
@@ -28,11 +25,10 @@ public class MensajeCasoAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0 : return new MessageListFragment();
-            //case 0 : return new InformationFragment();
             case 1 : return new CasoFragment();
-            //case 1 : return new InformationFragment();
             case 2 : return new InformationFragment();
             default:
+                Log.d(context.getString(R.string.debug_TAG), "MensajeCasoAdapter received incorrect int position argument");
                 return null;
         }
     }

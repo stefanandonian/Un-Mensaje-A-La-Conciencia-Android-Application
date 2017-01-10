@@ -16,10 +16,6 @@ import net.conciencia.mensajeandroid.ContentLoaders.CasoLoader;
 import net.conciencia.mensajeandroid.Objects.Caso;
 import net.conciencia.mensajeandroid.R;
 
-/**
- * Created by stefanandonian on 12/12/16.
- */
-
 public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     TextView caso_title_id;
@@ -53,23 +49,20 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         return casoView;
     }
 
-    // Needs more implementation
     private void sendCasoInEmailToFriend() {
         Intent emailToFriend = new Intent(Intent.ACTION_SEND);
         emailToFriend.setData(Uri.parse("mailto:"));
-
         emailToFriend.putExtra(Intent.EXTRA_SUBJECT, caso.getTitle() + " : " + caso.getDate());
         emailToFriend.setType("message/rfc822");
         emailToFriend.putExtra(Intent.EXTRA_TEXT, caso.getText());
-
-        Intent chooser = Intent.createChooser(emailToFriend, "Send Email");
+        Intent chooser = Intent.createChooser(emailToFriend, getContext().getString(R.string.send_email_toast_message));
         startActivity(chooser);
     }
 
     private void updateCaso(boolean succesful) {
         if (succesful) {
             caso_title_id.setText(caso.getTitle() + " : " + caso.getId());
-            caso_date.setText(caso.getDate().toString());
+            caso_date.setText(caso.getDate());
             caso_text.setText(caso.getText());
         }
     }

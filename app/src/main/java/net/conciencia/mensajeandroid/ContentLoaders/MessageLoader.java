@@ -1,12 +1,10 @@
 package net.conciencia.mensajeandroid.ContentLoaders;
 
-/**
- * Created by smccollum on 05.05.16.
- */
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.content.Context;
 
 import net.conciencia.mensajeandroid.Objects.Message;
+import net.conciencia.mensajeandroid.Objects.ParcelableMessageArrayList;
+import net.conciencia.mensajeandroid.R;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -18,53 +16,39 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-/**
- * RSS interface for    Un Mensaje A La Conciencia's website
- */
-public class MessageLoader implements Parcelable {
-    private static final String UN_MENSAJE_RSS_FEED = "http://conciencia.net/rss.aspx";
+public class MessageLoader {
 
-    boolean dataLoaded = false;
-    ArrayList<Message> messages;
+    private ParcelableMessageArrayList parcelable_messages;
+    private Context context;
 
-    public MessageLoader(Parcel source) {
-        messages = source.readArrayList(Message.class.getClassLoader());
-    }
-    public MessageLoader(){
-        messages = new ArrayList<Message>();
+    public MessageLoader(Context context){
+        this.context = context;
+        parcelable_messages = loadMessagesFromUnMensajeALaConcienciaRssFeed();
     }
 
-    public boolean loadMessagesFromWeb(){
-        NodeList feed = getNodeListFromXML();
-        if(feed == null)
-            return false;
-        messages = getArrayMessageArrayListFromDocument(feed);
-        dataLoaded = true;
-        return true;
+    public ParcelableMessageArrayList getParcelable_messages() {
+        return parcelable_messages;
     }
 
-    public Message getSermon(int sermonIndex){
-        return messages.get(sermonIndex-1);
+    public ParcelableMessageArrayList loadMessagesFromUnMensajeALaConcienciaRssFeed(){
+        NodeList rssFeedNodeList = getNodeListFromXML();
+        ArrayList<Message> messages = getArrayMessageArrayListFromNodeList(rssFeedNodeList);
+        return new ParcelableMessageArrayList(messages);
     }
 
     // w3c.dom tool returns an itemized version of Un Mensaje's RSS Feed for
     // Messages in an object called a NodeList from the w3c.dom library
-    public NodeList getNodeListFromXML() {
-        try
-        {
-            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(UN_MENSAJE_RSS_FEED).getDocumentElement().getElementsByTagName("item");
-        } catch (ParserConfigurationException pce) {
-            pce.printStackTrace();
-        } catch (SAXException se) {
-            se.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+    private NodeList getNodeListFromXML() {
+        try {
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(context.getString(R.string.un_mensaje_rss_feed)).getDocumentElement().getElementsByTagName("item");
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
-    private ArrayList<Message> getArrayMessageArrayListFromDocument(NodeList xmlNodeList){
-        ArrayList<Message> parsedMessages = new ArrayList<Message>();
+    private ArrayList<Message> getArrayMessageArrayListFromNodeList(NodeList xmlNodeList){
+        ArrayList<Message> parsedMessages = new ArrayList<>();
         for(int i = 0 ; i < xmlNodeList.getLength();i++) {
             Element element = (Element)xmlNodeList.item(i);
             Message message = getMessageFromElement(element);
@@ -74,15 +58,15 @@ public class MessageLoader implements Parcelable {
     }
 
     private Message getMessageFromElement(Element messageElement) {
-        String title       = getTitle(messageElement);
-        String link        = getLink(messageElement);
-        String guid        = getGuid(messageElement);
-        String pubDate     = getPubDate(messageElement);
-        String author      = getAuthor(messageElement);
-        String description = getDescription(messageElement);
-        String audioURL    = getAudioURL(messageElement);
-        String videoURL    = getVideoURL(messageElement);
-        String duration    = getDuration(messageElement);
+        String title       = getTitleFromRssFeed(messageElement);
+        String link        = getLinkFromRssFeed(messageElement);
+        String guid        = getGuidFromRssFeed(messageElement);
+        String pubDate     = getPubDateFromRssFeed(messageElement);
+        String author      = getAuthorFromRssFeed(messageElement);
+        String description = getDescriptionFromRssFeed(messageElement);
+        String audioURL    = getAudioURLFromRssFeed(messageElement);
+        String videoURL    = getVideoURLFromRssFeed(messageElement);
+        String duration    = getDurationFromRssFeed(messageElement);
         return new Message(title, link, guid, pubDate, author, description, audioURL, videoURL, duration);
     }
 
@@ -90,77 +74,43 @@ public class MessageLoader implements Parcelable {
         return itemElement.getElementsByTagName(tagName).item(0).getFirstChild().getNodeValue();
     }
 
-    private String getTitle(Element messageElement) {
+    private String getTitleFromRssFeed(Element messageElement) {
         return getMessageAttributeByTagNameFromElement(messageElement, "title");
     }
 
-    private String getLink(Element messageElement) {
+    private String getLinkFromRssFeed(Element messageElement) {
         return getMessageAttributeByTagNameFromElement(messageElement, "link");
     }
 
-    private String getGuid(Element messageElement) {
+    private String getGuidFromRssFeed(Element messageElement) {
         return getMessageAttributeByTagNameFromElement(messageElement, "guid");
     }
 
-    private String getPubDate(Element messageElement) {
+    private String getPubDateFromRssFeed(Element messageElement) {
         return getMessageAttributeByTagNameFromElement(messageElement, "pubDate");
     }
 
-    private String getAuthor(Element messageElement) {
+    private String getAuthorFromRssFeed(Element messageElement) {
         return getMessageAttributeByTagNameFromElement(messageElement, "author");
     }
 
-    private String getDescription(Element messageElement) {
+    private String getDescriptionFromRssFeed(Element messageElement) {
         return getMessageAttributeByTagNameFromElement(messageElement, "description");
     }
 
-    private String getDuration(Element messageElement) {
+    private String getDurationFromRssFeed(Element messageElement) {
         return getMessageAttributeByTagNameFromElement(messageElement, "itunes:duration");
     }
 
-    private String getAudioOrVideoURL(Element itemElement, int audioURLOrVideoURLndex) {
+    private String getAudioOrVideoUrlFromRssFeed(Element itemElement, int audioURLOrVideoURLndex) {
         return itemElement.getElementsByTagName("enclosure").item(audioURLOrVideoURLndex).getAttributes().item(0).getNodeValue();
     }
 
-    private String getVideoURL(Element messageElement) {
-        return getAudioOrVideoURL(messageElement, 1);
+    private String getVideoURLFromRssFeed(Element messageElement) {
+        return getAudioOrVideoUrlFromRssFeed(messageElement, 1);
     }
 
-    private String getAudioURL(Element messageElement) {
-        return getAudioOrVideoURL(messageElement, 0);
-    }
-
-    public ArrayList<Message> getMessages() {
-        return messages;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeList(getMessages());
-    }
-
-    public static final Parcelable.Creator<MessageLoader> CREATOR = new Parcelable.Creator<MessageLoader>(){
-
-        @Override
-        public MessageLoader createFromParcel(Parcel source) {
-            return new MessageLoader(source);
-        }
-
-        @Override
-        public MessageLoader[] newArray(int size) {
-            return new MessageLoader[size];
-        }
-    };
-
-    public int getSermonIndex(Message object) {
-        for(int i = 0; i < messages.size(); ++i){
-            // not complete, made by sam
-        }
-        return -1;
+    private String getAudioURLFromRssFeed(Element messageElement) {
+        return getAudioOrVideoUrlFromRssFeed(messageElement, 0);
     }
 }
