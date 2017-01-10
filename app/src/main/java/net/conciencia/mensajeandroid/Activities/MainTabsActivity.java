@@ -7,11 +7,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import net.conciencia.mensajeandroid.Adapters.MensajeCasoAdapter;
-import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
+import net.conciencia.mensajeandroid.Objects.ParcelableMessageList;
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.Fragments.MessageListFragment;
 
-public class MainActivity extends AppCompatActivity implements MessageListFragment.MessageListInteraction {
+public class MainTabsActivity extends AppCompatActivity implements MessageListFragment.MessageListInteraction {
 
     ViewPager mensaje_caso_pager;
     TabLayout mensaje_caso_tablayout;
@@ -32,10 +32,11 @@ public class MainActivity extends AppCompatActivity implements MessageListFragme
 
 
     @Override
-    public void onSermonSelected(MessageLoader messageLoader, int sermonIndex) {
-        Intent intent = new Intent(MainActivity.this, MessageViewActivity.class);
+    public void onSermonSelected(ParcelableMessageList messageList, int sermonIndex) {
+        Intent intent = new Intent(MainTabsActivity.this, MessageViewActivity.class);
         Bundle extras = new Bundle();
-        extras.putParcelable(getString(R.string.rss_extra), messageLoader.getParcelable_messages());
+        System.out.println("Item size " + messageList.getSize());
+        extras.putParcelable(getString(R.string.rss_extra), messageList);
         extras.putInt(getString(R.string.message_index), sermonIndex);
         intent.putExtras(extras);
         startActivity(intent);
