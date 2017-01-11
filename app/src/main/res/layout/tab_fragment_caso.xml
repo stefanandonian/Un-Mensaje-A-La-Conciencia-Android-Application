@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/rectangle_border_margin"
-        android:layout_above="@+id/caso_send_caso_in_email_to_friend_fab"
+        android:layout_above="@+id/caso_fab_bar"
         android:background="@drawable/rectangle_border_color_accent" >
 
-    <ScrollView
+        <ScrollView
         android:id="@+id/caso_text_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,15 +56,25 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/caso_send_caso_in_email_to_friend_fab"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/caso_fab_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/fab_margin"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        app:backgroundTint="@color/colorPrimaryDark"/>
+        android:background="@color/colorPrimaryDark">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/caso_send_caso_in_email_to_friend_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_dialog_email"
+            app:backgroundTint="@color/colorPrimary"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

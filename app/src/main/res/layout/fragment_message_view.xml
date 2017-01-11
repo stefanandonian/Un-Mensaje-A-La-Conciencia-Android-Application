@@ -11,7 +11,7 @@
         android:id="@+id/message_view_scroll_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/message_view_audio_fab"
+        android:layout_above="@+id/message_view_fab_bar"
         android:layout_margin="@dimen/rectangle_border_margin"
         android:background="@drawable/rectangle_border_color_accent">
 
@@ -45,44 +45,50 @@
 
     </ScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/message_view_audio_fab"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/message_view_fab_bar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/presence_audio_online"
-        app:backgroundTint="@color/colorPrimaryDark"
-        />
+        android:background="@color/colorPrimaryDark">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/message_view_video_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/message_view_audio_fab"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="8dp"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/presence_video_online"
-        app:backgroundTint="@color/colorPrimaryDark"
-        />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/message_view_audio_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/presence_audio_online"
+            app:backgroundTint="@color/colorPrimary" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/message_view_email_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/message_view_video_fab"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="8dp"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        app:backgroundTint="@color/colorPrimaryDark"
-        />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/message_view_video_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/message_view_audio_fab"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/presence_video_online"
+            app:backgroundTint="@color/colorPrimary" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/message_view_email_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/message_view_video_fab"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_dialog_email"
+            app:backgroundTint="@color/colorPrimary"
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_border_color_accent"
             android:layout_margin="@dimen/rectangle_border_margin"
-            android:layout_above="@+id/send_email_to_Info_fab" >
+            android:layout_above="@+id/information_fab_bar" >
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -82,39 +82,49 @@
 
         </ScrollView>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/info_facebook_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/info_margin_fab_horizontal_spacing"
-            android:clickable="true"
-            app:srcCompat="@drawable/facebook_icon"
-            app:backgroundTint="@color/faceBookBlue"
-            />
+    <RelativeLayout
+        android:id="@+id/information_fab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/info_conciencia_webpage_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/info_facebook_fab"
-            android:layout_margin="@dimen/info_margin_fab_horizontal_spacing"
-            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
             app:srcCompat="@drawable/conciencia_fab_icon"
-            app:backgroundTint="@color/colorPrimaryDark"
-            />
+            app:backgroundTint="@color/colorPrimary" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/send_email_to_Info_fab"
+            android:id="@+id/info_facebook_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/info_conciencia_webpage_fab"
-            android:layout_margin="@dimen/info_margin_fab_horizontal_spacing"
-            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/send_email_to_Info_fab"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:srcCompat="@android:drawable/ic_dialog_email"
-            app:backgroundTint="@color/colorPrimaryDark" />
+            app:srcCompat="@drawable/facebook_icon"
+            app:backgroundTint="@color/faceBookBlue" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/send_email_to_Info_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/rectangle_border_margin"
+                android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+                android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+                android:clickable="true"
+                app:srcCompat="@android:drawable/ic_dialog_email"
+                app:backgroundTint="@color/colorPrimary" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
