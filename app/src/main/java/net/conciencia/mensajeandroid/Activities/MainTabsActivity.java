@@ -19,7 +19,7 @@ public class MainTabsActivity extends AppCompatActivity implements MessageListFr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_list);
+        setContentView(R.layout.activity_main_tabs);
         setVisualElements();
     }
 
