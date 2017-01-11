@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.Objects;
+package net.conciencia.mensajeandroid.objects;
 
 public class Caso  {
 

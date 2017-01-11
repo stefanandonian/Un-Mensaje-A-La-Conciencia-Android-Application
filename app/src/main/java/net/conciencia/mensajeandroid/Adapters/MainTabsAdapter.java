@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.Adapters;
+package net.conciencia.mensajeandroid.adapters;
 
 
 import android.content.Context;
@@ -7,16 +7,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
-import net.conciencia.mensajeandroid.Fragments.CasoFragment;
-import net.conciencia.mensajeandroid.Fragments.InformationFragment;
-import net.conciencia.mensajeandroid.Fragments.MessageListFragment;
+import net.conciencia.mensajeandroid.fragments.CasoFragment;
+import net.conciencia.mensajeandroid.fragments.InformationFragment;
+import net.conciencia.mensajeandroid.fragments.MessageListFragment;
 import net.conciencia.mensajeandroid.R;
 
-public class MensajeCasoAdapter extends FragmentPagerAdapter {
+public class MainTabsAdapter extends FragmentPagerAdapter {
 
-    Context context;
+    private Context context;
 
-    public MensajeCasoAdapter(FragmentManager fm, Context context) {
+    public MainTabsAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
     }
@@ -28,7 +28,7 @@ public class MensajeCasoAdapter extends FragmentPagerAdapter {
             case 1 : return new CasoFragment();
             case 2 : return new InformationFragment();
             default:
-                Log.d(context.getString(R.string.debug_TAG), "MensajeCasoAdapter received incorrect int position argument");
+                Log.d(context.getString(R.string.debug_TAG), context.getString(R.string.main_tabs_adapter_getItem_error_explanation));
                 return null;
         }
     }
@@ -41,9 +41,9 @@ public class MensajeCasoAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
-            case 0 : return context.getString(R.string.daily_message);
-            case 1 : return context.getString(R.string.case_of_the_week);
-            case 2 : return context.getString(R.string.information_tab_title);
+            case 0 : return context.getString(R.string.daily_message_tab);
+            case 1 : return context.getString(R.string.case_of_the_week_tab);
+            case 2 : return context.getString(R.string.information_tab);
             default:
                 return null;
         }

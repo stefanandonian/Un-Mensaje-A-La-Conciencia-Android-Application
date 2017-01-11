@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.Activities;
+package net.conciencia.mensajeandroid.activities;
 
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -7,16 +7,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import net.conciencia.mensajeandroid.Adapters.SectionsPagerAdapter;
-import net.conciencia.mensajeandroid.Objects.ParcelableMessageArrayList;
+import net.conciencia.mensajeandroid.adapters.MessageViewAdapter;
+import net.conciencia.mensajeandroid.objects.MessageList;
 import net.conciencia.mensajeandroid.R;
-import net.conciencia.mensajeandroid.ContentLoaders.RSSClient;
-import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
 
 public class MessageViewActivity extends AppCompatActivity {
 
-    ParcelableMessageArrayList messages;
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    MessageList messages;
+    private MessageViewAdapter mMessageViewAdapter;
     private ViewPager mViewPager;
 
     @Override
@@ -24,17 +22,17 @@ public class MessageViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_view);
         Bundle args = getIntent().getExtras();
-        messages = args.getParcelable(getString(R.string.rss_extra));
+        messages = (MessageList) args.getParcelable(getString(R.string.rss_extra));
         setMessageViewActionBar();
         setMessageView_ViewPagerAndPagerAdapter(args);
     }
 
     private void setMessageView_ViewPagerAndPagerAdapter(Bundle args) {
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this.messages);
+        mMessageViewAdapter = new MessageViewAdapter(getSupportFragmentManager(), this.messages);
         mViewPager = (ViewPager) findViewById(R.id.message_view_container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(mMessageViewAdapter);
         mViewPager.setCurrentItem(args.getInt(getString(R.string.message_index)));
-        mSectionsPagerAdapter.notifyDataSetChanged();
+        mMessageViewAdapter.notifyDataSetChanged();
     }
 
     private void setMessageViewActionBar() {

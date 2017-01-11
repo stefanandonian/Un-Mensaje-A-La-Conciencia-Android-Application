@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.Fragments;
+package net.conciencia.mensajeandroid.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,17 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
-import net.conciencia.mensajeandroid.Objects.Message;
-import net.conciencia.mensajeandroid.Objects.ParcelableMessageArrayList;
+import net.conciencia.mensajeandroid.objects.Message;
+import net.conciencia.mensajeandroid.objects.MessageList;
 import net.conciencia.mensajeandroid.R;
 
 public class MessageViewFragment extends Fragment {
 
-    ParcelableMessageArrayList messages;
-    int sermonIndex;
+    MessageList messages;
+    int messageIndex;
 
-    private static final String ARG_SERMON_INDEX = "section_number";
+    private static final String ARG_MESSAGE_INDEX = "section_number";
     private static final String ARG_MESSAGES = "parcelable_messages";
 
     TextView titleTextView;
@@ -32,10 +31,10 @@ public class MessageViewFragment extends Fragment {
     FloatingActionButton audio_fab;
     FloatingActionButton send_mensaje_in_email_to_friend_fab;
 
-    public static MessageViewFragment newInstance(int sermonIndex, ParcelableMessageArrayList messages) {
+    public static MessageViewFragment newInstance(int sermonIndex, MessageList messages) {
         MessageViewFragment fragment = new MessageViewFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_SERMON_INDEX, sermonIndex);
+        args.putInt(ARG_MESSAGE_INDEX, sermonIndex);
         args.putParcelable(ARG_MESSAGES, messages);
         fragment.setArguments(args);
         return fragment;
@@ -45,13 +44,13 @@ public class MessageViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_message_view, container, false);
         setFloatingActionButtons(rootView);
-        getSermonIndexAndMessagesFromArguments();
-        setTextViewsAndFillWithMessageData(rootView, messages.getMessage(sermonIndex));
+        getMessageIndexAndMessagesFromArguments();
+        setTextViewsAndFillWithMessageData(rootView, messages.getMessage(messageIndex));
         return rootView;
     }
 
-    private void getSermonIndexAndMessagesFromArguments() {
-        sermonIndex = getArguments().getInt(ARG_SERMON_INDEX);
+    private void getMessageIndexAndMessagesFromArguments() {
+        messageIndex = getArguments().getInt(ARG_MESSAGE_INDEX);
         messages = getArguments().getParcelable(ARG_MESSAGES);
     }
 
@@ -61,9 +60,9 @@ public class MessageViewFragment extends Fragment {
     }
 
     private void setTextViews(View rootView) {
-        titleTextView = (TextView) rootView.findViewById(R.id.title);
-        dateTextView = (TextView) rootView.findViewById(R.id.date);
-        message_contentsTextView = (TextView) rootView.findViewById(R.id.message_content);
+        titleTextView = (TextView) rootView.findViewById(R.id.message_view_title);
+        dateTextView = (TextView) rootView.findViewById(R.id.message_view_date);
+        message_contentsTextView = (TextView) rootView.findViewById(R.id.message_view_message_text);
     }
 
     private void fillTextViewsWithMessageData(Message message) {
@@ -108,11 +107,11 @@ public class MessageViewFragment extends Fragment {
     }
 
     private void playAudio() {
-        playMedia(messages.getMessage(sermonIndex).getAudioURL());
+        playMedia(messages.getMessage(messageIndex).getAudioURL());
     }
 
     private void playVideo() {
-        playMedia(messages.getMessage(sermonIndex).getVideoURL());
+        playMedia(messages.getMessage(messageIndex).getVideoURL());
     }
 
     private void playMedia(String url) {
@@ -122,10 +121,10 @@ public class MessageViewFragment extends Fragment {
     private void sendMensajeInEmailToFriend() {
         Intent emailToFriend = new Intent(Intent.ACTION_SEND);
         emailToFriend.setData(Uri.parse("mailto:"));
-        emailToFriend.putExtra(Intent.EXTRA_SUBJECT, messages.getMessage(sermonIndex).getTitle());
+        emailToFriend.putExtra(Intent.EXTRA_SUBJECT, messages.getMessage(messageIndex).getTitle());
         emailToFriend.setType("message/rfc822");
-        emailToFriend.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(messages.getMessage(sermonIndex).getText()));
-        Intent chooser = Intent.createChooser(emailToFriend, getContext().getString(R.string.send_email_toast_message));
+        emailToFriend.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(messages.getMessage(messageIndex).getText()));
+        Intent chooser = Intent.createChooser(emailToFriend, getContext().getString(R.string.email_chooser_message));
         startActivity(chooser);
     }
 }

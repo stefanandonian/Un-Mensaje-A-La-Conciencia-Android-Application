@@ -1,22 +1,18 @@
-package net.conciencia.mensajeandroid.Adapters;
+package net.conciencia.mensajeandroid.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import net.conciencia.mensajeandroid.ContentLoaders.MessageLoader;
-import net.conciencia.mensajeandroid.Fragments.MessageViewFragment;
-import net.conciencia.mensajeandroid.Objects.Message;
-import net.conciencia.mensajeandroid.Objects.ParcelableMessageArrayList;
+import net.conciencia.mensajeandroid.fragments.MessageViewFragment;
+import net.conciencia.mensajeandroid.objects.Message;
+import net.conciencia.mensajeandroid.objects.MessageList;
 
-/**
- * Created by stefanandonian on 1/9/17.
- */
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class MessageViewAdapter extends FragmentPagerAdapter {
 
-    private ParcelableMessageArrayList messages;
+    private MessageList messages;
 
-    public SectionsPagerAdapter(FragmentManager fm, ParcelableMessageArrayList messages) {
+    public MessageViewAdapter(FragmentManager fm, MessageList messages) {
         super(fm);
         this.messages = messages;
     }
@@ -41,8 +37,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if (true)
-            throw new NullPointerException();
-        return super.getPageTitle(position);
+        // Not Implemented
+        return "Not Implemented";
     }
 }

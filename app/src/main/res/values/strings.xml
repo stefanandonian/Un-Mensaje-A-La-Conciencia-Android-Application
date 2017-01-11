@@ -1,26 +1,53 @@
 <resources>
     <string name="app_name">Un Mensaje A La Conciencia</string>
 
-    <string name="play_video">Video</string>
-    <string name="play_audio">Audio</string>
-    <string name="title_activity_information">InformationActivity</string>
+    <!-- MainTabsActivity Tab Titles -->
+    <string name="daily_message_tab">Mensajes</string>
+    <string name="case_of_the_week_tab">Caso</string>
+    <string name="information_tab">Info</string>
 
-    <string name="daily_message">Mensajes</string>
-    <string name="case_of_the_week">Caso</string>
-    <string name="information_tab_title">Info</string>
-
+    <!-- Parcelable Keys -->
     <string name="rss_extra">rss_extra</string>
     <string name="message_index">sermon_index</string>
-    <string name="arg_sermon_index">section_number</string>
 
+    <!-- Information Fragment TextViews -->
     <string name="information_street_address">Costa Mesa, CA 92628</string>
     <string name="information_po_box">Box 100</string>
     <string name="information_telephone">Tel: 949.645.0676</string>
     <string name="information_fax">Fax: 949.645.0374</string>
     <string name="information_disclaimer">Esta aplicacion se brinda como un servicio sin garantias expresas y depende dela disponibilidad de Internet. La misma ha sido desarrollada por Logica Digital.Sus comentarios son bienvenidos en apple@logicadigital.net</string>
 
-    <string name="debug_TAG">DEBUG</string>
-    <string name="un_mensaje_rss_feed">http://conciencia.net/rss.aspx</string>
+    <!-- Information Fragment FloatingActionButton Values -->
+    <string name="conciencia_facebook_url">https://www.facebook.com/mensajeAconciencia/</string>
+    <string name="conciencia_email_address">info@conciencia.net</string>
+    <string name="conciencia_website_url">http://www.conciencia.net/</string>
 
-    <string name="send_email_toast_message">Enviar por Correo</string>
+    <!-- Log Tags -->
+    <string name="debug_TAG">DEBUG</string>
+    <string name="main_tabs_adapter_getItem_error_explanation">MensajeCasoAdapter received incorrect int position argument</string>
+
+    <!-- Content Feeds -->
+    <string name="un_mensaje_message_feed">http://conciencia.net/rss.aspx</string>
+    <string name="un_mensaje_caso_feed"></string>
+
+    <!-- Message RssFeed XmlDocument Tags -->
+    <string name="message_loader_title_tag">title</string>
+    <string name="message_loader_link_tag">link</string>
+    <string name="message_loader_guid_tag">guid</string>
+    <string name="message_loader_date_tag">pubDate</string>
+    <string name="message_loader_author_tag">author</string>
+    <string name="message_loader_description_tag">description</string>
+    <string name="message_loader_duration_tag">itunes:duration</string>
+    <string name="message_loader_audio_and_video_tag">enclosure</string>
+
+    <!-- Caso Feed XmlDocument Tags -->
+    <string name="caso_loader_title_tag">title</string>
+    <string name="caso_loader_date_tag">date</string>
+    <string name="caso_loader_topic_tag">topic</string>
+    <string name="caso_loader_caso_text_tag">text</string>
+    <string name="caso_loader_id_tag">id</string>
+
+    <!-- Chooser Messages -->
+    <string name="email_chooser_message">Enviar por Correo</string>
+
 </resources>

@@ -10,7 +10,7 @@
         android:label="Mensajes"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Base">
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".activities.MainTabsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.MessageViewActivity"
-            android:parentActivityName=".Activities.MainActivity"
+            android:name=".activities.MessageViewActivity"
+            android:parentActivityName=".activities.MainTabsActivity"
             android:theme="@style/AppTheme.Base">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,7 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
+                android:value=".activities.MainTabsActivity" />
         </activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->

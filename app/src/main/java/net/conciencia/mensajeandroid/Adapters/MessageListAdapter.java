@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.Adapters;
+package net.conciencia.mensajeandroid.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,18 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import net.conciencia.mensajeandroid.objects.MessageList;
 import net.conciencia.mensajeandroid.R;
-import net.conciencia.mensajeandroid.Objects.Message;
-
-import java.util.List;
+import net.conciencia.mensajeandroid.objects.Message;
 
 public class MessageListAdapter extends ArrayAdapter<Message> {
 
-    public MessageListAdapter(Context context, Message[] messages){
-        super(context, R.layout.list_item_message, messages);
-    }
-    public MessageListAdapter(Context context, List<Message> messageList){
-        this(context, makeArray(messageList));
+    public MessageListAdapter(Context context, MessageList messageList){
+        super(context, R.layout.list_item_message, messageList.getMessagesAsArray());
     }
 
     @Override
@@ -35,14 +31,5 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
         titleView.setText(message.getTitle());
         TextView dateView = (TextView)sermonItem.findViewById(R.id.messageDate);
         dateView.setText(message.getPubDate());
-    }
-
-    private static Message[] makeArray(List<Message> messageList){
-        Message[] messageArray = new Message[messageList.size()];
-        int i = 0;
-        for(Message message : messageList){
-            messageArray[i++] = message;
-        }
-        return messageArray;
     }
 }

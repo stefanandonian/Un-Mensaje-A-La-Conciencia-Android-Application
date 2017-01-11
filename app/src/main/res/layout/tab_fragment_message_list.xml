@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context=".Fragments.MessageListFragment"
+    tools:context=".fragments.MessageListFragment"
     android:id="@+id/sermon_list_fragment"
     android:background="@color/colorPrimary"
     android:layout_margin="0dp">
@@ -19,7 +19,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/lv_sermon_list"></ListView>
+            android:id="@+id/lv_message_list"></ListView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

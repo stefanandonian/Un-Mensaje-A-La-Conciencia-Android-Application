@@ -6,43 +6,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Activities.MessageViewActivity">
+    tools:context=".activities.MessageViewActivity">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/concienciaBanner_ImageView"
-        android:src="@drawable/un_mensaje_al_conciencia_banner_9"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:scaleType="fitXY" />
+        android:layout_height="wrap_content"
+        android:id="@+id/conciencia_imageBanner"
+        android:src="@drawable/un_mensaje_al_conciencia_banner"
+        android:scaleType="fitXY"
+        android:contentDescription="Un Mensaje A La Conciencia"/>
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/mensaje_caso_tablayout"
+        android:id="@+id/main_tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/concienciaBanner_ImageView"
+        android:layout_below="@id/conciencia_imageBanner"
         app:tabMode="fixed"
         app:tabGravity="fill"
         style="@style/CustomTabLayoutStyle" >
 
         <android.support.design.widget.TabItem
-            android:id="@+id/mensaje_tabItem"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/daily_message" />
+            android:text="@string/daily_message_tab" />
 
         <android.support.design.widget.TabItem
-            android:id="@+id/caso_tabItem"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/case_of_the_week" />
+            android:text="@string/case_of_the_week_tab" />
 
         <android.support.design.widget.TabItem
-            android:id="@+id/information_tabItem"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/information_tab_title"/>
+            android:text="@string/information_tab"/>
 
     </android.support.design.widget.TabLayout>
     
@@ -50,6 +46,6 @@
         android:id="@+id/mensaje_caso_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/mensaje_caso_tablayout"/>
+        android:layout_below="@id/main_tablayout"/>
 
 </RelativeLayout>

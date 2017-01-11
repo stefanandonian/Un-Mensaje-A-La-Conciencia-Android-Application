@@ -1,5 +1,0 @@
-package net.conciencia.mensajeandroid.ContentLoaders;
-
-public interface RSSClient {
-    MessageLoader getMessages();
-}

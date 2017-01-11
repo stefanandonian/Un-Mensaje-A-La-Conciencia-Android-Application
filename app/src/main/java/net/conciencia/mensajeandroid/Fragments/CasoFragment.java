@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.Fragments;
+package net.conciencia.mensajeandroid.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,8 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import net.conciencia.mensajeandroid.ContentLoaders.CasoLoader;
-import net.conciencia.mensajeandroid.Objects.Caso;
+import net.conciencia.mensajeandroid.content_loaders.CasoLoader;
+import net.conciencia.mensajeandroid.objects.Caso;
 import net.conciencia.mensajeandroid.R;
 
 public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -22,7 +22,7 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     TextView caso_date;
     TextView caso_text;
     FloatingActionButton send_caso_in_email_to_friend_fab;
-
+    SwipeRefreshLayout casoSwipeRefreshLayout;
     Caso caso;
 
     @Override
@@ -33,20 +33,29 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState) {
         View casoView = layoutInflater.inflate(R.layout.tab_fragment_caso, container, false);
+        setTextViews(casoView);
+        setEmailFloatingActionButton(casoView);
+        setOnRefreshLayout(casoView);
+        onRefresh();
+        return casoView;
+    }
+
+    private void setOnRefreshLayout(View casoView) {
+        casoSwipeRefreshLayout = (SwipeRefreshLayout) casoView.findViewById(R.id.caso_swipe_refresh_layout);
+        casoSwipeRefreshLayout.setOnRefreshListener(this);
+    }
+
+    private void setTextViews(View casoView) {
         caso_title_id = (TextView) casoView.findViewById(R.id.caso_title_id);
         caso_date = (TextView) casoView.findViewById(R.id.caso_date);
         caso_text = (TextView) casoView.findViewById(R.id.caso_text);
+    }
 
+    private void setEmailFloatingActionButton(View casoView) {
         send_caso_in_email_to_friend_fab = (FloatingActionButton) casoView.findViewById(R.id.caso_send_caso_in_email_to_friend_fab);
         send_caso_in_email_to_friend_fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                sendCasoInEmailToFriend();
-            }
-        });
-        UpdateCasoTask updateCasoTask = new UpdateCasoTask();
-        updateCasoTask.execute();
-        return casoView;
+            public void onClick(View view) { sendCasoInEmailToFriend(); } });
     }
 
     private void sendCasoInEmailToFriend() {
@@ -55,30 +64,33 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         emailToFriend.putExtra(Intent.EXTRA_SUBJECT, caso.getTitle() + " : " + caso.getDate());
         emailToFriend.setType("message/rfc822");
         emailToFriend.putExtra(Intent.EXTRA_TEXT, caso.getText());
-        Intent chooser = Intent.createChooser(emailToFriend, getContext().getString(R.string.send_email_toast_message));
+        Intent chooser = Intent.createChooser(emailToFriend, getContext().getString(R.string.email_chooser_message));
         startActivity(chooser);
-    }
-
-    private void updateCaso(boolean succesful) {
-        if (succesful) {
-            caso_title_id.setText(caso.getTitle() + " : " + caso.getId());
-            caso_date.setText(caso.getDate());
-            caso_text.setText(caso.getText());
-        }
     }
 
     @Override
     public void onRefresh() {
+        casoSwipeRefreshLayout.setRefreshing(true);
         UpdateCasoTask updateCaso = new UpdateCasoTask();
         updateCaso.execute();
     }
 
+    private void onRefreshComplete() {
+        casoSwipeRefreshLayout.setRefreshing(false);
+        updateCasoTextViews();
+    }
+
+    private void updateCasoTextViews() {
+            caso_title_id.setText(caso.getTitle() + " : " + caso.getId());
+            caso_date.setText(caso.getDate());
+            caso_text.setText(caso.getText());
+    }
 
     public class UpdateCasoTask extends AsyncTask<Void, Void, Boolean> {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            CasoLoader casoLoader = new CasoLoader();
+            CasoLoader casoLoader = new CasoLoader(getContext());
             caso = casoLoader.getCaso();
             if (caso != null)
                 return true;
@@ -88,7 +100,7 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         @Override
         protected void onPostExecute(Boolean successful) {
             super.onPostExecute(successful);
-            updateCaso(successful);
+            onRefreshComplete();
         }
     }
 

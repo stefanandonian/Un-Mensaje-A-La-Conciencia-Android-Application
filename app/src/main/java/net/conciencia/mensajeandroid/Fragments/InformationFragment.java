@@ -1,4 +1,4 @@
-package net.conciencia.mensajeandroid.Fragments;
+package net.conciencia.mensajeandroid.fragments;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -13,9 +13,9 @@ import net.conciencia.mensajeandroid.R;
 
 public class InformationFragment extends Fragment {
 
-    FloatingActionButton send_email_to_Info_fab;
-    FloatingActionButton facebook_fab;
-    FloatingActionButton conciencia_webpage_fab;
+    private FloatingActionButton send_email_to_Info_fab;
+    private FloatingActionButton facebook_fab;
+    private FloatingActionButton conciencia_webpage_fab;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,44 +23,55 @@ public class InformationFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View informationView = inflater.inflate(R.layout.tab_fragment_information, container, false);
+        setUpFloatingActionButtons(informationView);
+        return informationView;
+    }
 
-        send_email_to_Info_fab = (FloatingActionButton) informationView.findViewById(R.id.send_email_to_Info_fab);
-        send_email_to_Info_fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendEmailToConcienciaDotNet();
-            }
-        });
+    private void setUpFloatingActionButtons(View informationView) {
+        setUpConcienciaWebpageFloatingActionButton(informationView);
+        setUpEmailFloatingActionButton(informationView);
+        setUpFacebookFloatingActionButton(informationView);
+    }
 
+    private void setUpFacebookFloatingActionButton(View informationView) {
         facebook_fab = (FloatingActionButton) informationView.findViewById(R.id.info_facebook_fab);
         facebook_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openWebPage("https://www.facebook.com/mensajeAconciencia/");
+                openWebPage(getString(R.string.conciencia_facebook_url));
+            }
+        });
+    }
+
+    private void setUpEmailFloatingActionButton(View informationView) {
+        send_email_to_Info_fab = (FloatingActionButton) informationView.findViewById(R.id.send_email_to_Info_fab);
+        send_email_to_Info_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendEmailToUnMensajeALaConciencia();
             }
         });
 
+    }
+
+    private void setUpConcienciaWebpageFloatingActionButton(View informationView) {
         conciencia_webpage_fab = (FloatingActionButton) informationView.findViewById(R.id.info_conciencia_webpage_fab);
         conciencia_webpage_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openWebPage("http://www.conciencia.net/");
+                openWebPage(getString(R.string.conciencia_website_url));
             }
         });
-        return informationView;
     }
 
-    // Needs more implementation
-    private void sendEmailToConcienciaDotNet() {
+    private void sendEmailToUnMensajeALaConciencia() {
         Intent emailConcienciaHoy = new Intent(Intent.ACTION_SEND);
         emailConcienciaHoy.setData(Uri.parse("mailto:"));
-        emailConcienciaHoy.putExtra(Intent.EXTRA_EMAIL, new String[]{"info@conciencia.net"});
+        emailConcienciaHoy.putExtra(Intent.EXTRA_EMAIL, new String[]{ getString(R.string.conciencia_email_address)});
         emailConcienciaHoy.setType("message/rfc822");
-        startActivity(Intent.createChooser(emailConcienciaHoy, "Enviar Por Correo"));
+        startActivity(Intent.createChooser(emailConcienciaHoy, getString(R.string.email_chooser_message)));
     }
 
     private void openWebPage(String uri) {

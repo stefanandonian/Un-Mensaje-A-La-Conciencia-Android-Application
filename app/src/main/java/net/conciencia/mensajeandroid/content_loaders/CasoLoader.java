@@ -1,9 +1,10 @@
-package net.conciencia.mensajeandroid.ContentLoaders;
+package net.conciencia.mensajeandroid.content_loaders;
 
+import android.content.Context;
 import android.text.Html;
-import android.util.Log;
 
-import net.conciencia.mensajeandroid.Objects.Caso;
+import net.conciencia.mensajeandroid.R;
+import net.conciencia.mensajeandroid.objects.Caso;
 
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -21,24 +22,26 @@ import javax.xml.parsers.ParserConfigurationException;
 public class CasoLoader {
 
     private Caso caso;
+    private Context context;
     private final String UN_MENSAJE_CASOS_FEED = "http://conciencia.net/api/casos.asmx/get?id=0";
     private final String OLD_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     private final String NEW_DATE_FORMAT = "MM / dd / yyyy";
 
-    public CasoLoader() {
-        downloadXMLContentAndStoreInClassCaso(getElementFromXML());
+    public CasoLoader(Context context) {
+        this.context = context;
+        downloadXMLContentAndStoreInCaso(getElementFromXML());
     }
 
     public Caso getCaso() {
         return caso;
     }
 
-    private void downloadXMLContentAndStoreInClassCaso(Element xmlElement) {
-        String text = formatHtmlAsPlainText(xmlElement.getElementsByTagName("text").item(0).getFirstChild().getNodeValue());
-        String date = changeDateFormat(xmlElement.getElementsByTagName("date").item(0).getFirstChild().getNodeValue());
-        String id = xmlElement.getElementsByTagName("id").item(0).getFirstChild().getNodeValue();
-        String title = xmlElement.getElementsByTagName("title").item(0).getFirstChild().getNodeValue();
-        String topic = xmlElement.getElementsByTagName("topic").item(0).getFirstChild().getNodeValue();
+    private void downloadXMLContentAndStoreInCaso(Element xmlElement) {
+        String text = getText(xmlElement);
+        String date = getDate(xmlElement);
+        String id = getId(xmlElement);
+        String title = getTitle(xmlElement);
+        String topic = getTopic(xmlElement);
         caso = new Caso(id, date, title, text, topic);
     }
 
@@ -51,8 +54,16 @@ public class CasoLoader {
         }
     }
 
+    private String getText(Element xmlElement) {
+        return formatHtmlAsPlainText(xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_caso_text_tag)).item(0).getFirstChild().getNodeValue());
+    }
+
     private String formatHtmlAsPlainText(String text) {
         return Html.fromHtml(text).toString();
+    }
+
+    private String getDate(Element xmlElement) {
+        return changeDateFormat(xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_date_tag)).item(0).getFirstChild().getNodeValue());
     }
 
     private String changeDateFormat(String oldDateString) {
@@ -62,10 +73,21 @@ public class CasoLoader {
             dateFormatConverter.applyPattern(this.NEW_DATE_FORMAT);
             return dateFormatConverter.format(temporaryDateContainer);
         } catch (ParseException pE) {
-            Log.e("ParseException", "changeDateFormat : either the date format or the date string was invalid");
             pE.printStackTrace();
+            return "";
         }
-        return "";
+    }
+
+    private String getTopic(Element xmlElement) {
+        return xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_topic_tag)).item(0).getFirstChild().getNodeValue();
+    }
+
+    private String getId(Element xmlElement) {
+        return xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_id_tag)).item(0).getFirstChild().getNodeValue();
+    }
+
+    private String getTitle(Element xmlElement) {
+        return xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_title_tag)).item(0).getFirstChild().getNodeValue();
     }
 
 }
