@@ -16,6 +16,7 @@
         <item name="tabBackground">@color/colorPrimaryDark</item>
     </style>
 
+    <!-- This is used as part of CustomTabLayoutStyle -->
     <style name="CustomTabTextStyle" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/colorAccent</item>
