@@ -99,6 +99,7 @@
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
+            app:fabSize="mini"
             app:srcCompat="@drawable/conciencia_fab_icon"
             app:backgroundTint="@color/colorPrimary" />
 
@@ -111,6 +112,7 @@
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
+            app:fabSize="mini"
             app:srcCompat="@drawable/facebook_icon"
             app:backgroundTint="@color/faceBookBlue" />
 
@@ -123,6 +125,7 @@
                 android:layout_marginTop="@dimen/fab_bar_vertical_margin"
                 android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
                 android:clickable="true"
+                app:fabSize="mini"
                 app:srcCompat="@android:drawable/ic_dialog_email"
                 app:backgroundTint="@color/colorPrimary" />
 

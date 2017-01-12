@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary" >
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/caso_swipe_refresh_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/rectangle_border_margin"
+        android:layout_above="@+id/caso_fab_bar"
+        android:background="@drawable/rectangle_border_color_accent" >
+
+        <ScrollView
+        android:id="@+id/caso_text_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/caso_button_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/caso_title_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Caso de la Semana : 405"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/caso_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="March 28th, 1994"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/caso_text"
+                android:text="To create a custom Behavior It isn't as difficult as it may seem, to begin we must take into account two core elements: child and dependency."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/caso_fab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/caso_send_caso_in_email_to_friend_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_dialog_email"
+            app:backgroundTint="@color/colorPrimary"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

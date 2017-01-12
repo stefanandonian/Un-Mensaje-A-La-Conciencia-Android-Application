@@ -1,0 +1,97 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.conciencia.mensajeandroid.fragments.MessageViewFragment"
+    android:background="@color/colorPrimary" >
+
+    <ScrollView
+        android:id="@+id/message_view_scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/message_view_fab_bar"
+        android:layout_margin="@dimen/rectangle_border_margin"
+        android:background="@drawable/rectangle_border_color_accent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/message_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/message_view_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/message_view_title"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/message_view_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message_view_date" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/message_view_fab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/message_view_audio_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/presence_audio_online"
+            app:backgroundTint="@color/colorPrimary" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/message_view_video_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/message_view_audio_fab"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/presence_video_online"
+            app:backgroundTint="@color/colorPrimary" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/message_view_email_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/message_view_video_fab"
+            android:layout_marginRight="@dimen/rectangle_border_margin"
+            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
+            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_dialog_email"
+            app:backgroundTint="@color/colorPrimary"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
