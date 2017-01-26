@@ -2,9 +2,9 @@ package net.conciencia.mensajeandroid.content_loaders;
 
 import android.content.Context;
 
+import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.objects.Message;
 import net.conciencia.mensajeandroid.objects.MessageList;
-import net.conciencia.mensajeandroid.R;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -42,8 +42,6 @@ public class MessageLoader {
         return new MessageList(messages);
     }
 
-    // w3c.dom tool returns an itemized version of Un Mensaje's RSS Feed for
-    // Messages in an object called a NodeList from the w3c.dom library
     private NodeList getNodeListFromXML() {
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(context.getString(R.string.un_mensaje_message_feed)).getDocumentElement().getElementsByTagName("item");

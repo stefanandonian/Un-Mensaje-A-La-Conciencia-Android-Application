@@ -187,7 +187,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="603390b8c230249228f1bf32cdace0f53e8ceb4b">
+        sha1="a2a749a294fe8709c7ab7793a24fcc3d8cbe8236">
         <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_67ade2a2bc65ef134b20508b0221760cc12eb4e4/classes.dex" />
     </item>
     <item
@@ -223,7 +223,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="71fdff6ce49da85597d1ec87beebdba66b6168db">
+        sha1="94ac064fe36310b449ae4750aca0fb0a30a5586d">
         <dex dex="/Users/stefanandonian/softwaredevelopment/programmingprojects/UnMensaje/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_846a0999cea6735dd4b5b2ee7d4b896424b5ecb5/classes.dex" />
     </item>
 

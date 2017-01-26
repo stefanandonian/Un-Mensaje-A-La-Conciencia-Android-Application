@@ -43,20 +43,8 @@ public class Message implements Parcelable {
         return this.title;
     }
 
-    public String getLink() {
-        return  this.link;
-    }
-
-    public String getGuid() {
-        return this.guid;
-    }
-
     public String getPubDate() {
         return this.pubDate;
-    }
-
-    public String getAuthor() {
-        return this.author;
     }
 
     public String getText() {
@@ -69,10 +57,6 @@ public class Message implements Parcelable {
 
     public String getVideoURL() {
         return this.videoURL;
-    }
-
-    public String getDuration() {
-        return this.duration;
     }
 
     @Override

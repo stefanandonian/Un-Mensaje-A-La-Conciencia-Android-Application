@@ -31,9 +31,4 @@ public class Caso  {
     public String getText() {
         return this.text;
     }
-
-    public String getTopic() {
-        return this.topic;
-    }
-
 }

@@ -24,16 +24,16 @@
         <item name="android:textColor">@color/black</item>
     </style>
     <style name="ListItemDateStyle" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">23dp</item>
         <item name="android:textColor">@color/grey</item>
     </style>
     <!-- Info Tab -->
     <style name="InfoTitleStyle" parent="TextAppearance.AppCompat.Large">
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">28dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
-    <style name="InfoTextStyle" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textSize">22dp</item>
+    <style name="InfoTextStyle" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">26dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
     <style name="InfoDisclaimerStyle" parent="TextAppearance.AppCompat.Large">
@@ -41,11 +41,11 @@
     </style>
     <!-- MessageView and CasoTab -->
     <style name="MessageViewTitle" parent="TextAppearance.AppCompat.Large">
-        <item name="android:textSize">25dp</item>
+        <item name="android:textSize">28dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
     <style name="MessageViewDate" parent="TextAppearance.AppCompat.Large">
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">24dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
 </resources>

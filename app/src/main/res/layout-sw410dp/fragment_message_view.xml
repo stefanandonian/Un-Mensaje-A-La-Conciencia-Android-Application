@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                style="@style/MessageViewTitle" />
 
             <TextView
                 android:id="@+id/message_view_date"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/message_view_title"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                style="@style/MessageViewDate" />
 
             <TextView
                 android:id="@+id/message_view_message_text"
@@ -61,7 +61,7 @@
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@android:drawable/presence_audio_online"
             app:backgroundTint="@color/colorPrimary" />
 
@@ -74,7 +74,7 @@
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@android:drawable/presence_video_online"
             app:backgroundTint="@color/colorPrimary" />
 
@@ -87,7 +87,7 @@
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@android:drawable/ic_dialog_email"
             app:backgroundTint="@color/colorPrimary"
             />

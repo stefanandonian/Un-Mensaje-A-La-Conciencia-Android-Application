@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'unmensajeandroidappkey'
+            keyPassword 'L8i2nda25'
+            storeFile file('/Users/stefanandonian/keystores/android.jks')
+            storePassword '19UmAlCxba2'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion '24.0.2'
-
     defaultConfig {
         applicationId "net.conciencia.mensajeandroid"
         minSdkVersion 15
@@ -16,6 +23,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
     compileOptions {

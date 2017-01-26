@@ -2,7 +2,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="fab_bar_vertical_margin">4dp</dimen>
     <dimen name="rectangle_border_margin">8dp</dimen>
-    <dimen name="main_tabs_activity_banner_height">120dp</dimen>
-    <dimen name="info_margin_text_spacing">22dp</dimen>
+    <dimen name="main_tabs_activity_banner_height">100dp</dimen>
+    <dimen name="info_margin_text_spacing">12dp</dimen>
     <dimen name="design_fab_image_size" tools:override="true">30dp</dimen>
+    <dimen name="list_item_spacing">0dp</dimen>
 </resources>

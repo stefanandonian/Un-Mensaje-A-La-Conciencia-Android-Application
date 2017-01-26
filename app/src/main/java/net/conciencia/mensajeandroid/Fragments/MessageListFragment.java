@@ -12,10 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.adapters.MessageListAdapter;
 import net.conciencia.mensajeandroid.content_loaders.MessageLoader;
 import net.conciencia.mensajeandroid.objects.MessageList;
-import net.conciencia.mensajeandroid.R;
 
 /**
  * A fragment representing a list of Items.
@@ -60,11 +60,7 @@ public class MessageListFragment extends Fragment implements SwipeRefreshLayout.
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof MessageListInteraction) {
-            mListener = (MessageListInteraction) context;
-        } else {
-            throw new RuntimeException(context.toString() + " must implement MessageListInteraction");
-        }
+        mListener = (MessageListInteraction) context;
     }
 
     @Override

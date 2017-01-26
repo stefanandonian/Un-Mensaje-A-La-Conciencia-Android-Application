@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Caso de la Semana : 405"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                style="@style/MessageViewTitle"
                 android:textAlignment="center" />
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="March 28th, 1994"
                 android:textAlignment="center"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                style="@style/MessageViewDate"/>
 
             <TextView
                 android:id="@+id/caso_text"
@@ -72,7 +72,7 @@
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@android:drawable/ic_dialog_email"
             app:backgroundTint="@color/colorPrimary"/>
 
