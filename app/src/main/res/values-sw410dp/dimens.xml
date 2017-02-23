@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="fab_bar_vertical_margin">4dp</dimen>
-    <dimen name="rectangle_border_margin">14dp</dimen>
+    <dimen name="rectangle_border_margin">16dp</dimen>
     <dimen name="main_tabs_activity_banner_height">120dp</dimen>
     <dimen name="info_margin_text_spacing">20dp</dimen>
-    <dimen name="design_fab_image_size" tools:override="true">40dp</dimen>
+    <dimen name="design_fab_image_size" tools:override="true">30dp</dimen>
     <dimen name="list_item_spacing">2dp</dimen>
+    <dimen name="tab_textsize">14dp</dimen>
+    <dimen name="listitem_textsize">23dp</dimen>
+    <dimen name="info_title_textsize">2dp</dimen>
+    <dimen name="info_text_textsize">26dp</dimen>
+    <dimen name="info_disclaimer_textsize">26dp</dimen>
+    <dimen name="message_view_title_textsize">28dp</dimen>
+    <dimen name="message_view_date_textsize">24dp</dimen>
 </resources>

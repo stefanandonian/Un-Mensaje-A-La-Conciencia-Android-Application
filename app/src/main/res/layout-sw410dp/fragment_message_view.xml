@@ -61,7 +61,7 @@
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="normal"
+            app:fabSize="mini"
             app:srcCompat="@android:drawable/presence_audio_online"
             app:backgroundTint="@color/colorPrimary" />
 
@@ -74,7 +74,7 @@
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="normal"
+            app:fabSize="mini"
             app:srcCompat="@android:drawable/presence_video_online"
             app:backgroundTint="@color/colorPrimary" />
 

@@ -6,4 +6,12 @@
     <dimen name="info_margin_text_spacing">12dp</dimen>
     <dimen name="design_fab_image_size" tools:override="true">30dp</dimen>
     <dimen name="list_item_spacing">0dp</dimen>
+    <dimen name="tab_textsize">14dp</dimen>
+    <dimen name="listitem_date_textsize">20dp</dimen>
+    <dimen name="listitem_title_textsize">20dp</dimen>
+    <dimen name="info_title_textsize">24dp</dimen>
+    <dimen name="info_text_textsize">22dp</dimen>
+    <dimen name="info_disclaimer_textsize">24dp</dimen>
+    <dimen name="message_view_title_textsize">25dp</dimen>
+    <dimen name="message_view_date_textsize">22dp</dimen>
 </resources>

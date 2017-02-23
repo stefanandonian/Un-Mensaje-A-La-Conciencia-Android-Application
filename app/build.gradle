@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'unmensajeandroidappkey'
-            keyPassword 'L8i2nda25'
+            keyAlias 'UnMensajeKey'
+            keyPassword 'Un123Mensajeabc'
             storeFile file('/Users/stefanandonian/keystores/android.jks')
-            storePassword '19UmAlCxba2'
+            storePassword 'Stefan94!!!'
         }
     }
     compileSdkVersion 24

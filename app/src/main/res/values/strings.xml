@@ -12,10 +12,10 @@
 
     <!-- Information Fragment TextViews -->
     <string name="information_street_address">Costa Mesa, CA 92628</string>
-    <string name="information_po_box">Box 100</string>
+    <string name="information_email_address">info@conciencia.net</string>
     <string name="information_telephone">Tel: 949.645.0676</string>
     <string name="information_fax">Fax: 949.645.0374</string>
-    <string name="information_disclaimer">Esta aplicacion se brinda como un servicio sin garantias expresas y depende dela disponibilidad de Internet. La misma ha sido desarrollada por Logica Digital.Sus comentarios son bienvenidos en apple@logicadigital.net</string>
+    <string name="information_disclaimer">Esta aplicacion se brinda como un servicio sin garantias expresas y depende dela disponibilidad de Internet.</string>
 
     <!-- Information Fragment FloatingActionButton Values -->
     <string name="conciencia_facebook_url">https://www.facebook.com/mensajeAconciencia/</string>

@@ -19,12 +19,9 @@
                 android:layout_height="wrap_content" >
 
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/infoTitle"
                     android:text="@string/app_name"
                     style="@style/InfoTitleStyle"
-                    android:textAlignment="center"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/info_margin_text_spacing" />
@@ -43,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/info_PObox"
-                    android:text="@string/information_po_box"
+                    android:text="@string/information_email_address"
                     style="@style/InfoTextStyle"
                     android:layout_marginTop="@dimen/info_margin_text_spacing"
                     android:layout_below="@+id/infoStreetAddress"
@@ -70,7 +67,7 @@
                     android:layout_centerHorizontal="true"/>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/info_disclaimer"
                     android:textAlignment="center"
@@ -92,42 +89,21 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/info_conciencia_webpage_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/info_facebook_fab"
-            android:layout_marginRight="@dimen/rectangle_border_margin"
-            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
-            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
-            android:clickable="true"
-            app:fabSize="mini"
             app:srcCompat="@drawable/conciencia_fab_icon"
-            app:backgroundTint="@color/colorPrimary" />
+            app:backgroundTint="@color/colorPrimary"
+            style="@style/FloatingActionButtonStyle" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/info_facebook_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/send_email_to_Info_fab"
-            android:layout_marginRight="@dimen/rectangle_border_margin"
-            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
-            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
-            android:clickable="true"
-            app:fabSize="mini"
             app:srcCompat="@drawable/facebook_icon"
-            app:backgroundTint="@color/faceBookBlue" />
+            app:backgroundTint="@color/faceBookBlue"
+            style="@style/FloatingActionButtonStyle" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/send_email_to_Info_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/rectangle_border_margin"
-                android:layout_marginTop="@dimen/fab_bar_vertical_margin"
-                android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
-                android:clickable="true"
-                app:fabSize="mini"
-                app:srcCompat="@android:drawable/ic_dialog_email"
-                app:backgroundTint="@color/colorPrimary" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/send_email_to_Info_fab"
+            app:srcCompat="@android:drawable/ic_dialog_email"
+            app:backgroundTint="@color/colorPrimary"
+            style="@style/FloatingActionButtonStyle" />
 
         </RelativeLayout>
 

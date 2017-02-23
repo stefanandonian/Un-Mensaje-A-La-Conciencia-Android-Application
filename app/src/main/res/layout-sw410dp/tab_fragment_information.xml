@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/info_PObox"
-                    android:text="@string/information_po_box"
+                    android:text="@string/information_email_address"
                     style="@style/InfoTextStyle"
                     android:layout_marginTop="@dimen/info_margin_text_spacing"
                     android:layout_below="@+id/infoStreetAddress"
@@ -99,7 +99,7 @@
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="normal"
+            app:fabSize="mini"
             app:srcCompat="@drawable/conciencia_fab_icon"
             app:backgroundTint="@color/colorPrimary" />
 
@@ -112,7 +112,7 @@
             android:layout_marginTop="@dimen/fab_bar_vertical_margin"
             android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
             android:clickable="true"
-            app:fabSize="normal"
+            app:fabSize="mini"
             app:srcCompat="@drawable/facebook_icon"
             app:backgroundTint="@color/faceBookBlue" />
 
@@ -125,7 +125,7 @@
                 android:layout_marginTop="@dimen/fab_bar_vertical_margin"
                 android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
                 android:clickable="true"
-                app:fabSize="normal"
+                app:fabSize="mini"
                 app:srcCompat="@android:drawable/ic_dialog_email"
                 app:backgroundTint="@color/colorPrimary" />
 

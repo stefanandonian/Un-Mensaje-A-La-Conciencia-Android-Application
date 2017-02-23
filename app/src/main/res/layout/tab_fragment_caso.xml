@@ -65,16 +65,9 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/caso_send_caso_in_email_to_friend_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/rectangle_border_margin"
-            android:layout_marginBottom="@dimen/fab_bar_vertical_margin"
-            android:layout_marginTop="@dimen/fab_bar_vertical_margin"
-            android:clickable="true"
-            app:fabSize="mini"
             app:srcCompat="@android:drawable/ic_dialog_email"
-            app:backgroundTint="@color/colorPrimary"/>
+            app:backgroundTint="@color/colorPrimary"
+            style="@style/FloatingActionButtonStyle" />
 
     </RelativeLayout>
 
