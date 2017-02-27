@@ -20,5 +20,5 @@
     <dimen name="main_tabs_activity_banner_height">100dp</dimen>
     <dimen name="tab_textsize">36dp</dimen>
     <!-- General Throughout App -->
-    <dimen name="rectangle_border_margin">8dp</dimen>
+    <dimen name="rectangle_border_margin">26dp</dimen>
 </resources>
