@@ -8,10 +8,15 @@
     </style>
     <!-- Custom styles rather than app themes -->
     <style name="CustomTabLayoutStyle" parent="Base.Widget.Design.TabLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
         <item name="tabSelectedTextColor">@color/colorAccent</item>
         <item name="tabIndicatorColor">@color/colorPrimary</item>
         <item name="tabTextAppearance">@style/CustomTabTextStyle</item>
         <item name="tabBackground">@color/colorPrimaryDark</item>
+        <item name="tabMaxWidth">0dp</item>
     </style>
     <!-- This is used as part of CustomTabLayoutStyle -->
     <style name="CustomTabTextStyle" parent="TextAppearance.Design.Tab">
@@ -34,34 +39,76 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/info_margin_text_spacing</item>
     </style>
     <style name="InfoTextStyle" parent="TextAppearance.AppCompat.Medium">
         <item name="android:textSize">@dimen/info_text_textsize</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/info_margin_text_spacing</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
-    <style name="InfoDisclaimerStyle" parent="TextAppearance.AppCompat.Large">
+    <style name="InfoDisclaimerStyle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/info_text_textsize</item>
         <item name="android:textColor">@color/grey</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
     <!-- MessageView and CasoTab -->
     <style name="MessageViewTitle" parent="TextAppearance.AppCompat.Large">
         <item name="android:textSize">@dimen/message_view_title_textsize</item>
+        <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
     <style name="MessageViewDate" parent="TextAppearance.AppCompat.Large">
         <item name="android:textSize">@dimen/message_view_date_textsize</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
-    <!-- Floating Action Button -->
+    <style name="MessageViewText" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">@dimen/message_view_text_textsize</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!-- ScrollView Styles -->
+    <style name="InsideRectangleBorder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/rectangle_border_color_accent</item>
+        <item name="android:layout_margin">@dimen/rectangle_border_margin</item>
+    </style>
+    <style name="OutsideRectangleBorder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <!-- Fab Bar Styles -->
     <style name="FloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_marginRight">@dimen/rectangle_border_margin</item>
         <item name="android:layout_marginBottom">@dimen/fab_bar_vertical_margin</item>
         <item name="android:layout_marginTop">@dimen/fab_bar_vertical_margin</item>
         <item name="android:clickable">true</item>
         <item name="fabSize">normal</item>
+    </style>
+    <style name="FabBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
     </style>
 </resources>

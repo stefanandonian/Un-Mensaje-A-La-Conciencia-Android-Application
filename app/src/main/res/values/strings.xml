@@ -27,6 +27,7 @@
     <string name="main_tabs_adapter_getItem_error_explanation">MensajeCasoAdapter received incorrect int position argument</string>
 
     <!-- Content Feeds -->
+    <string name="has_not_loaded">El contenido no se ha cargado, compruebe la conexión de red</string>
     <string name="un_mensaje_message_feed">http://conciencia.net/rss.aspx</string>
     <string name="un_mensaje_caso_feed"></string>
 

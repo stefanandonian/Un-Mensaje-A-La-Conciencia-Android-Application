@@ -2,79 +2,54 @@
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary" >
+        style="@style/OutsideRectangleBorder" >
 
         <ScrollView
             android:id="@+id/information_scrollview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rectangle_border_color_accent"
-            android:layout_margin="@dimen/rectangle_border_margin"
-            android:layout_above="@+id/information_fab_bar" >
+            android:layout_above="@+id/information_fab_bar"
+            style="@style/InsideRectangleBorder" >
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
             <TextView
                     android:id="@+id/infoTitle"
                     android:text="@string/app_name"
-                    style="@style/InfoTitleStyle"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/info_margin_text_spacing" />
+                    android:layout_marginTop="@dimen/info_margin_text_spacing"
+                    style="@style/InfoTitleStyle" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/infoStreetAddress"
                     android:text="@string/information_street_address"
-                    style="@style/InfoTextStyle"
-                    android:layout_marginTop="@dimen/info_margin_text_spacing"
                     android:layout_below="@+id/infoTitle"
-                    android:layout_centerHorizontal="true" />
+                    style="@style/InfoTextStyle" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/info_PObox"
+                    android:id="@+id/info_email_address"
                     android:text="@string/information_email_address"
-                    style="@style/InfoTextStyle"
-                    android:layout_marginTop="@dimen/info_margin_text_spacing"
                     android:layout_below="@+id/infoStreetAddress"
-                    android:layout_centerHorizontal="true" />
+                    style="@style/InfoTextStyle" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/info_telephone"
                     android:text="@string/information_telephone"
-                    style="@style/InfoTextStyle"
-                    android:layout_marginTop="@dimen/info_margin_text_spacing"
-                    android:layout_below="@+id/info_PObox"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_below="@+id/info_email_address"
+                    style="@style/InfoTextStyle" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/info_fax"
                     android:text="@string/information_fax"
-                    style="@style/InfoTextStyle"
                     android:layout_below="@+id/info_telephone"
-                    android:layout_marginTop="@dimen/info_margin_text_spacing"
-                    android:layout_centerHorizontal="true"/>
+                    style="@style/InfoTextStyle" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/info_disclaimer"
-                    android:textAlignment="center"
-                    android:textAppearance="?android:textAppearanceMedium"
                     android:text="@string/information_disclaimer"
-                    android:layout_marginTop="@dimen/info_margin_text_spacing"
-                    android:layout_below="@+id/info_fax" />
+                    android:layout_below="@+id/info_fax"
+                    android:layout_marginTop="@dimen/info_disclaimer_above_margin"
+                    style="@style/InfoDisclaimerStyle" />
 
             </RelativeLayout>
 
@@ -82,27 +57,27 @@
 
     <RelativeLayout
         android:id="@+id/information_fab_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark">
+        style="@style/FabBarStyle">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/info_conciencia_webpage_fab"
             app:srcCompat="@drawable/conciencia_fab_icon"
             app:backgroundTint="@color/colorPrimary"
+            android:layout_toLeftOf="@+id/info_facebook_fab"
             style="@style/FloatingActionButtonStyle" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/info_facebook_fab"
             app:srcCompat="@drawable/facebook_icon"
             app:backgroundTint="@color/faceBookBlue"
+            android:layout_toLeftOf="@+id/send_email_to_Info_fab"
             style="@style/FloatingActionButtonStyle" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/send_email_to_Info_fab"
             app:srcCompat="@android:drawable/ic_dialog_email"
             app:backgroundTint="@color/colorPrimary"
+            android:layout_alignParentRight="true"
             style="@style/FloatingActionButtonStyle" />
 
         </RelativeLayout>

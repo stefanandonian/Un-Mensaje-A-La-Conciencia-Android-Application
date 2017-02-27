@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- FAB Bar -->
+    <dimen name="fab_bar_vertical_margin">8dp</dimen>
+    <dimen name="design_fab_image_size" tools:override="true">44dp</dimen>
+    <!-- MessageView -->
+    <dimen name="message_view_title_textsize">40dp</dimen>
+    <dimen name="message_view_date_textsize">40dp</dimen>
+    <dimen name="message_view_text_textsize">36dp</dimen>
+    <!-- ListItem -->
+    <dimen name="listitem_date_textsize">40dp</dimen>
+    <dimen name="listitem_title_textsize">40dp</dimen>
+    <dimen name="list_item_spacing">0dp</dimen>
+    <!-- InfoFragment -->
+    <dimen name="info_title_textsize">40dp</dimen>
+    <dimen name="info_text_textsize">40dp</dimen>
+    <dimen name="info_disclaimer_textsize">36dp</dimen>
+    <dimen name="info_margin_text_spacing">20dp</dimen>
+    <!-- HomePageTabs -->
+    <dimen name="main_tabs_activity_banner_height">100dp</dimen>
+    <dimen name="tab_textsize">36dp</dimen>
+    <!-- General Throughout App -->
+    <dimen name="rectangle_border_margin">8dp</dimen>
+</resources>
