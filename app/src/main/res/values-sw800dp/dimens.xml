@@ -20,5 +20,6 @@
     <dimen name="main_tabs_activity_banner_height">100dp</dimen>
     <dimen name="tab_textsize">28dp</dimen>
     <!-- General Throughout App -->
-    <dimen name="rectangle_border_margin">28dp</dimen>
+    <dimen name="rectangle_border_margin">14dp</dimen>
+    <dimen name="margin_from_golden_border">20dp</dimen>
 </resources>
