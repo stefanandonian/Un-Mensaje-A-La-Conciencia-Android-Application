@@ -56,7 +56,7 @@ public class CasoLoader {
     }
 
     private String getText(Element xmlElement) {
-        return formatHtmlAsPlainText(xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_caso_text_tag)).item(0).getFirstChild().getNodeValue());
+        return eraseNewlineChars(xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_caso_text_tag)).item(0).getFirstChild().getNodeValue());
     }
 
     private String formatHtmlAsPlainText(String text) {
@@ -98,7 +98,7 @@ public class CasoLoader {
     @SuppressWarnings("deprecation")
     private  Spanned fromHtml(String html){
         Spanned result;
-        html = eraseNewlineChars(html);
+        //html = eraseNewlineChars(html);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
         } else {

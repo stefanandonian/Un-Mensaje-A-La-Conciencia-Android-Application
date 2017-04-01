@@ -10,6 +10,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import net.conciencia.mensajeandroid.content_loaders.CasoLoader;
@@ -20,7 +21,8 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     TextView caso_title_id;
     TextView caso_date;
-    TextView caso_text;
+    //TextView caso_text;
+    WebView caso_text;
     FloatingActionButton send_caso_in_email_to_friend_fab;
     SwipeRefreshLayout casoSwipeRefreshLayout;
     Caso caso;
@@ -48,7 +50,7 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void setTextViews(View casoView) {
         caso_title_id = (TextView) casoView.findViewById(R.id.caso_title_id);
         caso_date = (TextView) casoView.findViewById(R.id.caso_date);
-        caso_text = (TextView) casoView.findViewById(R.id.caso_text);
+        caso_text = (WebView) casoView.findViewById(R.id.caso_webview);
     }
 
     private void setEmailFloatingActionButton(View casoView) {
@@ -81,9 +83,19 @@ public class CasoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void updateCasoTextViews() {
-            caso_title_id.setText(caso.getTitle() + " : " + caso.getId());
-            caso_date.setText(caso.getDate());
-            caso_text.setText(caso.getText());
+        caso_title_id.setText(caso.getTitle() + " : " + caso.getId());
+        caso_date.setText(caso.getDate());
+        caso_text.loadData(caso.getText(),"text/html", "utf-8");
+    }
+
+    private void updateCasoText() {
+        /*String casoText = "<html><body>"
+                + "<p align=\"justify\">"
+                + caso.getText()
+                + "</p>"
+                + "</body></html>";
+        caso_text.loadData(casoText,"text/html", "utf-8");
+        */
     }
 
     public class UpdateCasoTask extends AsyncTask<Void, Void, Boolean> {
