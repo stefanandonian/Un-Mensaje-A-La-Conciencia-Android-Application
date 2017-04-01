@@ -2,6 +2,7 @@ package net.conciencia.mensajeandroid.content_loaders;
 
 import android.content.Context;
 import android.text.Html;
+import android.text.Spanned;
 
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.objects.Caso;
@@ -59,7 +60,7 @@ public class CasoLoader {
     }
 
     private String formatHtmlAsPlainText(String text) {
-        return Html.fromHtml(text).toString();
+        return fromHtml(text).toString();
     }
 
     private String getDate(Element xmlElement) {
@@ -88,6 +89,22 @@ public class CasoLoader {
 
     private String getTitle(Element xmlElement) {
         return xmlElement.getElementsByTagName(context.getString(R.string.caso_loader_title_tag)).item(0).getFirstChild().getNodeValue();
+    }
+
+    private String eraseNewlineChars(String s) {
+        return s.replaceAll("\n","");
+    }
+
+    @SuppressWarnings("deprecation")
+    private  Spanned fromHtml(String html){
+        Spanned result;
+        html = eraseNewlineChars(html);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
     }
 
 }
