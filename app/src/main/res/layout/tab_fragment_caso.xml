@@ -29,16 +29,10 @@
                 android:id="@+id/caso_date"
                 style="@style/MessageViewDate"/>
 
-            <WebView
-                android:id="@+id/caso_webview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </WebView>
-            <!--
              <TextView
                 android:id="@+id/caso_text"
                 style="@style/MessageViewText" />
-                -->
+
         </LinearLayout>
 
     </ScrollView>

@@ -1,6 +1,7 @@
 package net.conciencia.mensajeandroid.content_loaders;
 
 import android.content.Context;
+import android.util.Log;
 
 import net.conciencia.mensajeandroid.R;
 import net.conciencia.mensajeandroid.objects.Message;
@@ -16,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.StringTokenizer;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -67,16 +69,16 @@ public class MessageLoader {
         String guid        = getGuidFromRssFeed(messageElement);
         String pubDate     = changeDateStringFormat(getPubDateFromRssFeed(messageElement));
         String author      = getAuthorFromRssFeed(messageElement);
-        String description = eraseEscapeChars(getDescriptionFromRssFeed(messageElement));
+        String description = getDescriptionFromRssFeed(messageElement);
         String audioURL    = getAudioURLFromRssFeed(messageElement);
         String videoURL    = getVideoURLFromRssFeed(messageElement);
         String duration    = getDurationFromRssFeed(messageElement);
         return new Message(title, link, guid, pubDate, author, description, audioURL, videoURL, duration);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         MessageLoader ml = new MessageLoader(null);
-        System.out.println(ml.eraseEscapeChars(ml.getMessageList().getMessage(1).getText()));
+        ml.loadMessagesFromUnMensajeALaConcienciaRssFeed();
     }
 
     private String eraseEscapeChars(String s) {
@@ -84,18 +86,28 @@ public class MessageLoader {
         return s.replaceAll("\n","");
     }
 
-    public String unEscapeString(String s){
-        StringBuilder sb = new StringBuilder();
-        for (int i=0; i<s.length(); i++)
-            switch (s.charAt(i)){
-                case '\n': sb.append("\\n"); break;
-                case '\t': sb.append("\\t"); break;
-                case '\b': sb.append("\\b"); break;
-                case '\r': sb.append("\\r"); break;
-                case '\f': sb.append("\\f"); break;
-                default: sb.append(s.charAt(i));
+    public String fixDescription(String description) {
+        StringTokenizer stringTokenizer = new StringTokenizer(description,";",true);
+        StringBuilder stringBuilder = new StringBuilder();
+        String nextToken;
+        boolean inTable = false;
+
+        while(stringTokenizer.hasMoreTokens()) {
+            nextToken = stringTokenizer.nextToken();
+
+            if (inTable && !nextToken.equals(nextToken.toLowerCase())) {
+                    stringBuilder.append('\n');
+                    stringBuilder.append(nextToken);
+            } else {
+                if (nextToken.contains("table width=")) {
+                    inTable = true;
+                }
+                stringBuilder.append(nextToken);
             }
-        return sb.toString();
+        }
+        System.out.println(stringBuilder.toString());
+        //Log.d("TEST",stringBuilder.toString());
+        return stringBuilder.toString();
     }
 
     private String changeDateStringFormat(String oldDateString) {
@@ -135,7 +147,11 @@ public class MessageLoader {
     }
 
     private String getDescriptionFromRssFeed(Element messageElement) {
-        return getMessageAttributeByTagNameFromElement(messageElement, "description"/*context.getString(R.string.message_loader_description_tag)*/);
+        return formatDescription(getMessageAttributeByTagNameFromElement(messageElement, "description"/*context.getString(R.string.message_loader_description_tag)*/));
+    }
+
+    private String formatDescription(String description) {
+        return fixDescription(eraseEscapeChars(description));
     }
 
     private String getDurationFromRssFeed(Element messageElement) {
